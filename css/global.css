@@ -25,9 +25,9 @@
 .mainPage
 {
     float: right;
-    width: 85% ;
+    width: 84%;
     height: 100vh;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 body{
     margin: 0;
