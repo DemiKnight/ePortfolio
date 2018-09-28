@@ -10,7 +10,7 @@
 }
 .navigation > nav a{
     color: white;
-
+    font-size: 2rem;
     text-decoration: none;
 }
 .navigation > nav ul{
