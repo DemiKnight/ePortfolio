@@ -1,13 +1,12 @@
+nav
 {
     float: left;
     width: 15%;
     height: 100vh;
     background: #2a2a2a;
-}
-.navigation > nav{
     display: compact;
 }
-.navigation > nav a{
+nav a{
     color: white;
     font-size: 2rem;
     font-family: Cantarell;
@@ -17,26 +16,23 @@ nav ul{
     list-style: none;
     -webkit-padding-start: 20px;
 }
-.navigation > nav ul > li{
+nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
 }
-<<<<<<< HEAD
-.navigation > nav ul > li:active, .navigation > nav ul > li:focus, .navigation > nav ul > li:hover{
-    background-color: antiquewhite;
-}
+/*.navigation > nav ul > li:active, .navigation > nav ul > li:focus, .navigation > nav ul > li:hover{*/
+    /*background-color: antiquewhite;*/
+/*}*/
 
-.navigation > nav ul > li > a:active, .navigation > nav ul > li > a:focus, .navigation > nav ul > li > a:hover{
-    color: #2a2a2a;
-}
+/*.navigation > nav ul > li > a:active, .navigation > nav ul > li > a:focus, .navigation > nav ul > li > a:hover{*/
+    /*color: #2a2a2a;*/
+/*}*/
 
-.mainPage
+#mainPage
 {
     float: right;
-    width: 84% ;
+    width: 84%;
     height: 100vh;
-    /*padding: 5px;*/
-    background-color: aliceblue;
 }
 body{
     margin: 0;
