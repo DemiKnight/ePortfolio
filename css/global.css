@@ -1,3 +1,47 @@
+/* Fonts */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    /*
+    Different browsers support varies for font types, according to https://socialcompare.com/en/comparison/browser-fonts-support-comparison
+
+    TODO Need to sort out a Harvord reference to the link above
+     */
+    src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ */
+    src: local('Material Icons'),
+            local('MaterialIcons-regular'),
+                url("fonts/MaterialIcons-Regular.woff2") format('woff2'),
+                url("fonts/MaterialIcons-Regular.woff")  format('woff'), /* Most desktop browsers support this */
+                url("fonts/MaterialIcons-Regular.ttf") format('truetype');
+}
+.material-icons{
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    -ms-word-wrap: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Webkit browser support */
+    -webkit-font-smoothing: antialiased;
+
+    /* Safari and Chrome support */
+    text-rendering: optimizeLegibility;
+
+    /* Firefox support */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Internet Explorer */
+    font-feature-settings: 'liga';
+}
+
 nav
 {
     float: left;
@@ -5,10 +49,13 @@ nav
     height: 100vh;
     background: #2a2a2a;
     display: compact;
+    min-width: 145px;
+    max-width: 220px;
+    clear: both;
 }
 nav a{
     color: white;
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-family: Cantarell;
     text-decoration: none;
 }
@@ -20,19 +67,14 @@ nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
 }
-/*.navigation > nav ul > li:active, .navigation > nav ul > li:focus, .navigation > nav ul > li:hover{*/
-    /*background-color: antiquewhite;*/
-/*}*/
-
-/*.navigation > nav ul > li > a:active, .navigation > nav ul > li > a:focus, .navigation > nav ul > li > a:hover{*/
-    /*color: #2a2a2a;*/
-/*}*/
 
 #mainPage
 {
-    float: right;
-    width: 84%;
+    float: left;
+    /*width: 100%;*/
     height: 100vh;
+    /*margin-left: 20px;*/
+    padding-left: 5px;
 }
 body{
     margin: 0;
