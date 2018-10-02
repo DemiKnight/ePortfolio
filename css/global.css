@@ -1,4 +1,4 @@
-.navigation
+/*.navigation
 {
     float: left;
     width: 15%;
@@ -17,6 +17,26 @@
     list-style: none;
 }
 .navigation > nav ul > li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}*/
+nav
+{
+    float: left;
+    width: 15%;
+    height: 100vh;
+    background: #2a2a2a;
+    display: compact;
+}
+nav a{
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+}
+nav ul{
+    list-style: none;
+}
+nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
 }
