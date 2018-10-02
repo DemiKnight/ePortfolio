@@ -103,21 +103,33 @@ nav
     max-width: 220px;
     clear: both;
 }
-nav a{
+nav a, nav i{
     color: white;
-    font-size: 2rem;
-    font-family: "Caviar Dreams";
+    font-size: 1.5rem;
+    font-family: "Caviar Dreams Bold";
     text-decoration: none;
+    height: 100%;
+    line-height: 100%;
 }
 nav ul{
     list-style: none;
-    -webkit-padding-start: 20px;
+    -webkit-padding-start: 2px;
 }
 nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
-}
 
+}
+/* Selecting the large icons on the navigation bar*/
+nav ul li .material-icons{
+    font-size: 36px;
+    color: #ffffff;
+    margin-right: 2px;
+}
+nav ul li .nav-dropdown-item{
+    padding-left: 20px;
+    padding-bottom: 0;
+}
 #mainPage
 {
     float: left;
