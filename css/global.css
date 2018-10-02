@@ -4,22 +4,72 @@
     font-style: normal;
     font-weight: 400;
     /*
-    Different browsers support varies for font types, according to https://socialcompare.com/en/comparison/browser-fonts-support-comparison
+    Browsers support a specific file font types, including all will allow the most compatibility for as many computers as possible.
 
-    TODO Need to sort out a Harvord reference to the link above
+    --   Chris Coyier (2016), Using @font-face. CSS-Tricks [online] Accessed 02-10-2018, <https://css-tricks.com/snippets/css/using-font-face/> --
+    --   Alexis (2015) Browser Font support comparison. [online] Accessed 02-10-2018 <https://socialcompare.com/en/comparison/browser-fonts-support-comparison> --
      */
-    src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ */
+    src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge */
     src: local('Material Icons'),
             local('MaterialIcons-regular'),
-                url("fonts/MaterialIcons-Regular.woff2") format('woff2'),
-                url("fonts/MaterialIcons-Regular.woff")  format('woff'), /* Most desktop browsers support this */
-                url("fonts/MaterialIcons-Regular.ttf") format('truetype');
+                url("fonts/MaterialIcons-Regular.eot?#iefix") format('embedded-opentype'), /*IE6-IE8 */
+                url("fonts/MaterialIcons-Regular.woff2") format('woff2'), /*                 GC 43+, FF  39+, Op    31+, IE  NA, Ed  Na, Saf NA */
+                url("fonts/MaterialIcons-Regular.woff")  format('woff'), /*                  GC  6+, FF 3.6+, Op 11.10+, IE  9+, Ed 12+, Saf 5.1+ */
+                url("fonts/MaterialIcons-Regular.ttf")   format('truetype'); /*              GC  4+, FF 3.5+, Op  10.1+, IE 10+, Ed 13+, Saf 3.1+  */
+}
+@font-face {
+    font-family: 'Caviar Dreams';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams.eot");
+    src: local('CaviarDreams'),
+            url('fonts/CaviarDreams.eot?#iefix') format('embedded-opentype'),
+            url("fonts/CaviarDreams.woff2") format('woff2'),
+            url("fonts/CaviarDreams.woff")  format('woff'),
+            url("fonts/CaviarDreams.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Caviar Dreams Bold';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams_Bold.eot");
+    src: local('CaviarDreams_Bold'),
+    url('fonts/CaviarDreams_Bold.eot?#iefix') format('embedded-opentype'),
+    url("fonts/CaviarDreams_Bold.woff2") format('woff2'),
+    url("fonts/CaviarDreams_Bold.woff")  format('woff'),
+    url("fonts/CaviarDreams_Bold.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Caviar Dreams Italic';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams_Italic.eot");
+    src: local('CaviarDreams_Italic'),
+    url('fonts/CaviarDreams_Italic.eot?#iefix') format('embedded-opentype'),
+    url("fonts/CaviarDreams_Italic.woff2") format('woff2'),
+    url("fonts/CaviarDreams_Italic.woff")  format('woff'),
+    url("fonts/CaviarDreams_Italic.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Caviar Dreams BoldItalic';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams_BoldItalic.eot");
+    src: local('CaviarDreams_BoldItalic'),
+    url('fonts/CaviarDreams_BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url("fonts/CaviarDreams_BoldItalic.woff2") format('woff2'),
+    url("fonts/CaviarDreams_BoldItalic.woff")  format('woff'),
+    url("fonts/CaviarDreams_BoldItalic.ttf") format('truetype');
 }
 .material-icons{
     font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
-    font-size: 20px;
+    font-size: 25px;
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -28,7 +78,7 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-
+    vertical-align: center;
     /* Webkit browser support */
     -webkit-font-smoothing: antialiased;
 
@@ -55,8 +105,8 @@ nav
 }
 nav a{
     color: white;
-    font-size: 1.25rem;
-    font-family: Cantarell;
+    font-size: 2rem;
+    font-family: "Caviar Dreams";
     text-decoration: none;
 }
 nav ul{
