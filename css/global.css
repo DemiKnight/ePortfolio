@@ -65,6 +65,42 @@
     url("fonts/CaviarDreams_BoldItalic.woff")  format('woff'),
     url("fonts/CaviarDreams_BoldItalic.ttf") format('truetype');
 }
+/** Animations */
+@-moz-keyframes App-logo-spin {
+    from{
+        /*-moz-transform: rotate(90deg);*/
+        background-color: white;
+    }
+    to{
+        background: aqua;
+    }
+}
+@-webkit-keyframes rotateLeft {
+    /*100%{
+        -webkit-transform: rotate(90deg);
+    }*/
+    from{
+        /*-moz-transform: rotate(90deg);*/
+        background-color: white;
+    }
+    to{
+        background: aqua;
+    }
+}
+@keyframes rotateLeft {
+    /*100%{
+        -webkit-transform: rotate(90deg);
+        transform:rotate(90deg);
+    }*/
+    from{
+        /*-moz-transform: rotate(90deg);*/
+        background-color: transparent;
+    }
+    to{
+        background: aqua;
+    }
+}
+
 .material-icons{
     font-family: "Material Icons";
     font-weight: normal;
@@ -123,10 +159,19 @@ nav ul > li{
 /* Selecting the large icons on the navigation bar*/
 nav ul li .material-icons{
     font-size: 36px;
-    color: #ffffff;
+    color: #ED553B;
     margin-right: 2px;
+    -webkit-animation: App-logo-spin 4s;
+    animation: App-logo-spin 4s;
 }
-nav ul li .nav-dropdown-item{
+nav ul li .material-icons:hover, nav ul li .material-icons:active{
+    color: aqua;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+}
+
+
+nav ul li > ul > li{
     padding-left: 20px;
     padding-bottom: 0;
 }
