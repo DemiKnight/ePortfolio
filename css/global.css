@@ -81,40 +81,6 @@
 }
 /* ## Caviar Dreams ## */
 /* Animations */
-@-moz-keyframes App-logo-spin {
-    from{
-        /*-moz-transform: rotate(90deg);*/
-        background-color: white;
-    }
-    to{
-        background: aqua;
-    }
-}
-@-webkit-keyframes rotateLeft {
-    /*100%{
-        -webkit-transform: rotate(90deg);
-    }*/
-    from{
-        /*-moz-transform: rotate(90deg);*/
-        background-color: white;
-    }
-    to{
-        background: aqua;
-    }
-}
-@keyframes rotateLeft {
-    /*100%{
-        -webkit-transform: rotate(90deg);
-        transform:rotate(90deg);
-    }*/
-    from{
-        /*-moz-transform: rotate(90deg);*/
-        background-color: transparent;
-    }
-    to{
-        background: aqua;
-    }
-}
 
 .material-icons{
     font-family: "Material Icons";
@@ -155,8 +121,8 @@ nav
     clear: both;
 }
 nav a, nav i{
-    color: white;
-    font-size: 1.5rem;
+    color: #ffffff;
+    font-size: 1.25rem;
     font-family: "Caviar Dreams Bold";
     text-decoration: none;
     height: 100%;
@@ -174,29 +140,23 @@ nav ul > li{
 /* Selecting the large icons on the navigation bar*/
 nav ul li .material-icons{
     font-size: 36px;
-    color: #ED553B;
+    /*color: #ED553B;*/
     margin-right: 2px;
-    -webkit-animation: App-logo-spin 4s;
-    animation: App-logo-spin 4s;
+    /*color: inherit;*/
 }
-nav ul li .material-icons:hover, nav ul li .material-icons:active{
-    color: aqua;
-    animation-timing-function: ease-in-out;
-    animation-duration: 2s;
-}
-
 
 nav ul li > ul > li{
     padding-left: 20px;
     padding-bottom: 0;
 }
-nav ul li i:hover, nav ul li a:hover{
+nav ul li a:hover{
     color: #99a0ff;
     -webkit-transition: color 0.3s ease;
     -moz-transition: color 0.3s ease;
     -ms-transition: color 0.3s ease;
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
+
 }
 
 /* Main Content page.*/
@@ -205,7 +165,6 @@ nav ul li i:hover, nav ul li a:hover{
     float: left;
     /*width: 100%;*/
     height: 100vh;
-    /*margin-left: 20px;*/
     padding-left: 5px;
 }
 body{
