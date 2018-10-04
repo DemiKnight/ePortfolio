@@ -119,14 +119,17 @@ nav{
 
     overflow: hidden;
     width: 36px;
-    display: inline-block;
+    white-space: nowrap;
 }
 nav:hover, nav:active, nav:focus{
     width: 15%;
     max-width: 220px;
 }
-
-nav a, nav i{
+nav a{
+    display: inherit;
+    white-space: nowrap;
+}
+nav a, nav i {
     color: #ffffff;
     font-size: 1.25rem;
     font-family: "Caviar Dreams Bold";
@@ -134,18 +137,23 @@ nav a, nav i{
     height: 100%;
     line-height: 100%;
 }
+
 nav ul{
     list-style: none;
     -webkit-padding-start: 2px;
+
+    display: inline-block;
 }
 nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
+    white-space: nowrap;
 }
 /* Selecting the large icons on the navigation bar*/
 nav ul li .material-icons, nav ul li .material-icons ul li i{
     font-size: 36px;
     color: inherit;
+
 }
 
 nav ul li > ul > li{
