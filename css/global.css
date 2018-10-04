@@ -109,17 +109,23 @@
     font-feature-settings: 'liga';
 }
 /* Navigation */
-nav
-{
+nav{
     float: left;
-    width: 15%;
     height: 100vh;
     background: #2a2a2a;
-    display: compact;
+    display: inline-block;
     min-width: 145px;
     max-width: 220px;
     clear: both;
+    overflow: hidden;
+    width: 36px;
+
 }
+nav:hover, nav:active, nav:focus{
+    width: 15%;
+
+}
+
 nav a, nav i{
     color: #ffffff;
     font-size: 1.25rem;
@@ -157,12 +163,12 @@ nav ul li a:hover{
 }
 
 /* Main Content page.*/
-#mainPage
-{
+#mainPage{
     float: left;
-    /*width: 100%;*/
+    width: 80%;
+
     height: 100vh;
-    padding-left: 5px;
+    /*padding-left: 5px;*/
 }
 body{
     margin: 0;
