@@ -1,3 +1,133 @@
+/* Fonts */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    /*
+    Browsers support a specific file font types, including all will allow the most compatibility for as many computers as possible.
+
+    --   Chris Coyier (2016), Using @font-face. CSS-Tricks [online] Accessed 02-10-2018, <https://css-tricks.com/snippets/css/using-font-face/> --
+    --   Alexis (2015) Browser Font support comparison. [online] Accessed 02-10-2018 <https://socialcompare.com/en/comparison/browser-fonts-support-comparison> --
+     */
+    src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge */
+    src: local('Material Icons'),
+            local('MaterialIcons-regular'),
+                url("fonts/MaterialIcons-Regular.eot?#iefix") format('embedded-opentype'), /*IE6-IE8 */
+                url("fonts/MaterialIcons-Regular.woff2") format('woff2'), /*                 GC 43+, FF  39+, Op    31+, IE  NA, Ed  Na, Saf NA */
+                url("fonts/MaterialIcons-Regular.woff")  format('woff'), /*                  GC  6+, FF 3.6+, Op 11.10+, IE  9+, Ed 12+, Saf 5.1+ */
+                url("fonts/MaterialIcons-Regular.ttf")   format('truetype'); /*              GC  4+, FF 3.5+, Op  10.1+, IE 10+, Ed 13+, Saf 3.1+  */
+}
+@font-face {
+    font-family: 'Caviar Dreams';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams.eot");
+    src: local('CaviarDreams'),
+            url('fonts/CaviarDreams.eot?#iefix') format('embedded-opentype'),
+            url("fonts/CaviarDreams.woff2") format('woff2'),
+            url("fonts/CaviarDreams.woff")  format('woff'),
+            url("fonts/CaviarDreams.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Caviar Dreams Bold';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams_Bold.eot");
+    src: local('CaviarDreams_Bold'),
+    url('fonts/CaviarDreams_Bold.eot?#iefix') format('embedded-opentype'),
+    url("fonts/CaviarDreams_Bold.woff2") format('woff2'),
+    url("fonts/CaviarDreams_Bold.woff")  format('woff'),
+    url("fonts/CaviarDreams_Bold.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Caviar Dreams Italic';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams_Italic.eot");
+    src: local('CaviarDreams_Italic'),
+    url('fonts/CaviarDreams_Italic.eot?#iefix') format('embedded-opentype'),
+    url("fonts/CaviarDreams_Italic.woff2") format('woff2'),
+    url("fonts/CaviarDreams_Italic.woff")  format('woff'),
+    url("fonts/CaviarDreams_Italic.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Caviar Dreams BoldItalic';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("fonts/CaviarDreams_BoldItalic.eot");
+    src: local('CaviarDreams_BoldItalic'),
+    url('fonts/CaviarDreams_BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url("fonts/CaviarDreams_BoldItalic.woff2") format('woff2'),
+    url("fonts/CaviarDreams_BoldItalic.woff")  format('woff'),
+    url("fonts/CaviarDreams_BoldItalic.ttf") format('truetype');
+}
+/** Animations */
+@-moz-keyframes App-logo-spin {
+    from{
+        /*-moz-transform: rotate(90deg);*/
+        background-color: white;
+    }
+    to{
+        background: aqua;
+    }
+}
+@-webkit-keyframes rotateLeft {
+    /*100%{
+        -webkit-transform: rotate(90deg);
+    }*/
+    from{
+        /*-moz-transform: rotate(90deg);*/
+        background-color: white;
+    }
+    to{
+        background: aqua;
+    }
+}
+@keyframes rotateLeft {
+    /*100%{
+        -webkit-transform: rotate(90deg);
+        transform:rotate(90deg);
+    }*/
+    from{
+        /*-moz-transform: rotate(90deg);*/
+        background-color: transparent;
+    }
+    to{
+        background: aqua;
+    }
+}
+
+.material-icons{
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    -ms-word-wrap: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: center;
+    /* Webkit browser support */
+    -webkit-font-smoothing: antialiased;
+
+    /* Safari and Chrome support */
+    text-rendering: optimizeLegibility;
+
+    /* Firefox support */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Internet Explorer */
+    font-feature-settings: 'liga';
+}
+
 nav
 {
     float: left;
@@ -5,34 +135,53 @@ nav
     height: 100vh;
     background: #2a2a2a;
     display: compact;
+    min-width: 145px;
+    max-width: 220px;
+    clear: both;
 }
-nav a{
+nav a, nav i{
     color: white;
-    font-size: 2rem;
-    font-family: Cantarell;
+    font-size: 1.5rem;
+    font-family: "Caviar Dreams Bold";
     text-decoration: none;
+    height: 100%;
+    line-height: 100%;
 }
 nav ul{
     list-style: none;
-    -webkit-padding-start: 20px;
+    -webkit-padding-start: 2px;
 }
 nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
+
 }
-/*.navigation > nav ul > li:active, .navigation > nav ul > li:focus, .navigation > nav ul > li:hover{*/
-    /*background-color: antiquewhite;*/
-/*}*/
+/* Selecting the large icons on the navigation bar*/
+nav ul li .material-icons{
+    font-size: 36px;
+    color: #ED553B;
+    margin-right: 2px;
+    -webkit-animation: App-logo-spin 4s;
+    animation: App-logo-spin 4s;
+}
+nav ul li .material-icons:hover, nav ul li .material-icons:active{
+    color: aqua;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+}
 
-/*.navigation > nav ul > li > a:active, .navigation > nav ul > li > a:focus, .navigation > nav ul > li > a:hover{*/
-    /*color: #2a2a2a;*/
-/*}*/
 
+nav ul li > ul > li{
+    padding-left: 20px;
+    padding-bottom: 0;
+}
 #mainPage
 {
-    float: right;
-    width: 84%;
+    float: left;
+    /*width: 100%;*/
     height: 100vh;
+    /*margin-left: 20px;*/
+    padding-left: 5px;
 }
 body{
     margin: 0;
