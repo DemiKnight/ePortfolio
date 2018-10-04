@@ -113,17 +113,27 @@ nav{
     float: left;
     height: 100vh;
     background: #2a2a2a;
-    /*min-width: 145px;*/
     max-width: 220px;
     clear: both;
 
     overflow: hidden;
-    width: 36px;
+    width: 40px;
     white-space: nowrap;
+    transition: width 0.5s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -ms-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
 }
 nav:hover, nav:active, nav:focus{
     width: 15%;
     max-width: 220px;
+
+    transition: width 0.5s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -ms-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
 }
 nav a{
     display: inherit;
