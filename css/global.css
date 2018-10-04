@@ -119,6 +119,8 @@ nav{
     overflow: hidden;
     width: 40px;
     white-space: nowrap;
+
+    /*Transition from collapsed to extended*/
     transition: width 0.5s ease-in-out;
     -webkit-transition: width 0.5s ease-in-out;
     -moz-transition: width 0.5s ease-in-out;
@@ -129,6 +131,7 @@ nav:hover, nav:active, nav:focus{
     width: 15%;
     max-width: 220px;
 
+    /*Transition from extended to collapsed*/
     transition: width 0.5s ease-in-out;
     -webkit-transition: width 0.5s ease-in-out;
     -moz-transition: width 0.5s ease-in-out;
@@ -147,7 +150,6 @@ nav a, nav i {
     height: 100%;
     line-height: 100%;
 }
-
 nav ul{
     list-style: none;
     -webkit-padding-start: 2px;
@@ -163,7 +165,6 @@ nav ul > li{
 nav ul li .material-icons, nav ul li .material-icons ul li i{
     font-size: 36px;
     color: inherit;
-
 }
 
 nav ul li > ul > li{
@@ -177,9 +178,15 @@ nav ul li a:hover{
     -ms-transition: color 0.3s ease;
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
-
+}
+nav ul li a + ul{
+    display: none;
 }
 
+nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
+    /*color: darkgreen;*/
+    display: inherit;
+}
 /* Main Content page.*/
 #mainPage{
     float: left;
