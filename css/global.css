@@ -142,7 +142,7 @@
     /* Internet Explorer */
     font-feature-settings: 'liga';
 }
-
+/* Navigation */
 nav
 {
     float: left;
@@ -190,6 +190,16 @@ nav ul li > ul > li{
     padding-left: 20px;
     padding-bottom: 0;
 }
+nav ul li i:hover, nav ul li a:hover{
+    color: #99a0ff;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+/* Main Content page.*/
 #mainPage
 {
     float: left;
