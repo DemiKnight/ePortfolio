@@ -113,17 +113,17 @@ nav{
     float: left;
     height: 100vh;
     background: #2a2a2a;
-    display: inline-block;
-    min-width: 145px;
+    /*min-width: 145px;*/
     max-width: 220px;
     clear: both;
+
     overflow: hidden;
     width: 36px;
-
+    display: inline-block;
 }
 nav:hover, nav:active, nav:focus{
     width: 15%;
-
+    max-width: 220px;
 }
 
 nav a, nav i{
