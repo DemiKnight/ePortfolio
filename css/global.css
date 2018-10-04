@@ -135,14 +135,13 @@ nav ul{
 nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
-
 }
 /* Selecting the large icons on the navigation bar*/
-nav ul li .material-icons{
+nav ul li .material-icons, nav ul li .material-icons ul li i{
     font-size: 36px;
     /*color: #ED553B;*/
     margin-right: 2px;
-    /*color: inherit;*/
+    color: inherit;
 }
 
 nav ul li > ul > li{
@@ -150,7 +149,7 @@ nav ul li > ul > li{
     padding-bottom: 0;
 }
 nav ul li a:hover{
-    color: #99a0ff;
+    color: #ED553B;
     -webkit-transition: color 0.3s ease;
     -moz-transition: color 0.3s ease;
     -ms-transition: color 0.3s ease;
