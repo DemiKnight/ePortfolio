@@ -1,13 +1,22 @@
-/* Fonts */
+/* ## Fonts ## */
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
     /*
+
+    Fonts downloaded from Google's Material Design project, which creates and distributes open source icons for any kind
+    of project. Files came as font files, in the formats: "ttf","eot","woff","woff2","ijmap" and "svg".
+    -- Google (2018) 'Material Icons'. [online] Accessed 02/10/2018 <https://material.io/tools/icons/?style=sharp> --
+
+    I have observed Google's recommended way
+    -- Google (2018) 'Material Icons Guide'. [online] Accessed 02/10/2018 <https://google.github.io/material-design-icons/> --
+
     Browsers support a specific file font types, including all will allow the most compatibility for as many computers as possible.
 
-    --   Chris Coyier (2016), Using @font-face. CSS-Tricks [online] Accessed 02-10-2018, <https://css-tricks.com/snippets/css/using-font-face/> --
-    --   Alexis (2015) Browser Font support comparison. [online] Accessed 02-10-2018 <https://socialcompare.com/en/comparison/browser-fonts-support-comparison> --
+    -- Chris Coyier (2016), 'Using @font-face'. CSS-Tricks [online] Accessed 02-10-2018, <https://css-tricks.com/snippets/css/using-font-face/> --
+    -- Alexis (2015) 'Browser Font support comparison'. [online] Accessed 02-10-2018 <https://socialcompare.com/en/comparison/browser-fonts-support-comparison> --
+
      */
     src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge */
     src: local('Material Icons'),
@@ -17,6 +26,11 @@
                 url("fonts/MaterialIcons-Regular.woff")  format('woff'), /*                  GC  6+, FF 3.6+, Op 11.10+, IE  9+, Ed 12+, Saf 5.1+ */
                 url("fonts/MaterialIcons-Regular.ttf")   format('truetype'); /*              GC  4+, FF 3.5+, Op  10.1+, IE 10+, Ed 13+, Saf 3.1+  */
 }
+/* # Caviar Dreams #
+    The following is the primary font used throughout the project, which is freeware.
+    Converted font files from ttf to others to keep comparability between the browsers.
+    -- Lauren Thompson (2009), 'Caviar Dreams'. [online] Accessed [02/10/2018] <https://www.dafont.com/caviar-dreams.font> --
+*/
 @font-face {
     font-family: 'Caviar Dreams';
     font-style: normal;
@@ -65,7 +79,8 @@
     url("fonts/CaviarDreams_BoldItalic.woff")  format('woff'),
     url("fonts/CaviarDreams_BoldItalic.ttf") format('truetype');
 }
-/** Animations */
+/* ## Caviar Dreams ## */
+/* Animations */
 @-moz-keyframes App-logo-spin {
     from{
         /*-moz-transform: rotate(90deg);*/
