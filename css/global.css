@@ -138,6 +138,11 @@ nav:hover, nav:active, nav:focus{
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
 }
+nav h1{
+    /*white-space: normal;*/
+    color: #ffffff;
+    text-align: center;
+}
 nav a{
     display: inherit;
     white-space: nowrap;
