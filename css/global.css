@@ -83,7 +83,7 @@
 /* Animations */
 
 .material-icons{
-    font-family: "Material Icons";
+    font-family: "Material Icons", sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: 25px;
@@ -109,21 +109,43 @@
     font-feature-settings: 'liga';
 }
 /* Navigation */
-nav
-{
+nav{
     float: left;
-    width: 15%;
     height: 100vh;
     background: #2a2a2a;
-    display: compact;
-    min-width: 145px;
     max-width: 220px;
     clear: both;
+
+    overflow: hidden;
+    width: 40px;
+    white-space: nowrap;
+
+    /*Transition from collapsed to extended*/
+    transition: width 0.5s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -ms-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
 }
-nav a, nav i{
+nav:hover, nav:active, nav:focus{
+    width: 15%;
+    max-width: 220px;
+
+    /*Transition from extended to collapsed*/
+    transition: width 0.5s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -ms-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+}
+nav a{
+    display: inherit;
+    white-space: nowrap;
+}
+nav a, nav i {
     color: #ffffff;
     font-size: 1.25rem;
-    font-family: "Caviar Dreams Bold";
+    font-family: "Caviar Dreams Bold", sans-serif;
     text-decoration: none;
     height: 100%;
     line-height: 100%;
@@ -131,21 +153,22 @@ nav a, nav i{
 nav ul{
     list-style: none;
     -webkit-padding-start: 2px;
+
+    display: inline-block;
 }
 nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
+    white-space: nowrap;
 }
 /* Selecting the large icons on the navigation bar*/
 nav ul li .material-icons, nav ul li .material-icons ul li i{
     font-size: 36px;
-    /*color: #ED553B;*/
-    margin-right: 2px;
     color: inherit;
 }
 
 nav ul li > ul > li{
-    padding-left: 20px;
+    padding-left: 30px;
     padding-bottom: 0;
 }
 nav ul li a:hover{
@@ -155,16 +178,33 @@ nav ul li a:hover{
     -ms-transition: color 0.3s ease;
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
-
 }
+/* Hides the navigation dropdown items by default, until it is overwritten by a later rule. */
+nav ul li a + ul{
+    display: none;
+    visibility: collapse;
+    opacity: 0;
 
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+/* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. */
+nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
+    display: inherit;
+    /*transition: display 0.2s ease-in-out;*/
+    visibility: visible;
+    opacity: 1;
+}
 /* Main Content page.*/
-#mainPage
-{
+#mainPage{
     float: left;
-    /*width: 100%;*/
+    width: 80%;
+
     height: 100vh;
-    padding-left: 5px;
+    /*padding-left: 5px;*/
 }
 body{
     margin: 0;
