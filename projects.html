@@ -6,15 +6,80 @@
         <title>Projects</title>
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="employment.html">Employment</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">About</a></li>
-            </ul>
-        </nav>
+    <nav> <!-- Navigation  -->
+        <ul> <!-- Main Unordered List START-->
+
+            <li> <!-- Home Page -->
+                <a href="index.html">
+                    <i class="material-icons nav-icon">home</i>
+                    <span >Home</span>
+                </a>
+            </li>
+
+            <li> <!-- Employment Page-->
+                <a href="employment.html">
+                    <i class="material-icons nav-icon">work</i>
+                    <span>Employment</span>
+                </a>
+            </li>
+
+            <li> <!-- Education Page -->
+                <a href="#" class="nav-dropdown">
+                    <i class="material-icons nav-icon">school</i>
+                    <span>Education</span>
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+
+                <ul> <!-- Education Page Dropdown Start -->
+                    <li class="nav-dropdown-item">
+                        <a href="#">
+                            <i class="material-icons">play_arrow</i>
+                            <span>University</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-dropdown-item">
+                        <a href="#">
+                            <i class="material-icons">play_arrow</i>
+                            <span>College</span>
+                        </a>
+                    </li>
+                </ul> <!-- Education Page Dropdown -->
+            </li>
+
+            <li> <!-- Projects Page -->
+                <a href="#" class="nav-dropdown">
+                    <i class="material-icons nav-icon">code</i>
+                    <span>Projects</span>
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+
+                <ul> <!-- Projects Page List START -->
+                    <li class="nav-dropdown-item">
+                        <a href="#">
+                            <i class="material-icons">play_arrow</i>
+                            <span>Personal</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-dropdown-item">
+                        <a href="#">
+                            <i class="material-icons">play_arrow</i>
+                            <span>Academic</span>
+                        </a>
+                    </li>
+                </ul> <!-- Projects Page List -->
+            </li>
+
+            <li> <!-- About Me Page -->
+                <a href="about.html">
+                    <i class="material-icons nav-icon">account_circle</i>
+                    <span>About Me</span>
+                </a>
+            </li>
+        </ul> <!-- Main Unordered List -->
+    </nav>
+
         <div id="mainPage">
             <header>
                 <h1>Header</h1>
