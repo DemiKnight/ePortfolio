@@ -114,7 +114,7 @@ nav{
     height: 100vh;
     background: #2a2a2a;
     max-width: 220px;
-    clear: both;
+    /*clear: both;*/
 
     overflow: hidden;
     width: 40px;
@@ -128,7 +128,7 @@ nav{
     -o-transition: width 0.5s ease-in-out;
 }
 nav:hover, nav:active, nav:focus{
-    width: 15%;
+    width: 15vw;
     max-width: 220px;
 
     /*Transition from extended to collapsed*/
@@ -201,11 +201,23 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 /* Main Content page.*/
 #mainPage{
     float: left;
-    width: 80%;
-
+    /*width: 100vw;*/
+    flex: 1;
     height: 100vh;
     /*padding-left: 5px;*/
+    background: #013859;
+    color: #FFFFF8;
 }
+#mainPage header{
+    font-family: "Caviar Dreams Bold", sans-serif;
+    margin: 0;
+    padding: 0.6rem;
+    background: #0F1E32;
+    color: #EB3E4A;
+}
+
 body{
     margin: 0;
+    width: 100vw;
+    display: flex;
 }
