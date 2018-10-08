@@ -201,10 +201,9 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 /* Main Content page.*/
 #mainPage{
     float: left;
-    /*width: 100vw;*/
     flex: 1;
     height: 100vh;
-    /*padding-left: 5px;*/
+
     background: #013859;
     color: #FFFFF8;
 }
@@ -216,6 +215,12 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     color: #EB3E4A;
 }
 
+#mainPage main{
+    padding: 10px;
+}
+#mainPage main article{
+
+}
 body{
     margin: 0;
     width: 100vw;
