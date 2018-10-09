@@ -221,6 +221,9 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 #mainPage main article{
 
 }
+#mainPage footer {
+    background: antiquewhite;
+}
 body{
     margin: 0;
     width: 100vw;
