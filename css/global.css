@@ -127,6 +127,10 @@ nav{
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
 }
+nav .nav-header img{
+    /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
+    border-radius: 50px;
+}
 nav:hover, nav:active, nav:focus{
     width: 15vw;
     max-width: 220px;
