@@ -198,6 +198,7 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     visibility: visible;
     opacity: 1;
 }
+
 /* Main Content page.*/
 #mainPage{
     float: left;
@@ -213,6 +214,12 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     padding: 0.6rem;
     background: #0F1E32;
     color: #EB3E4A;
+}
+#mainPage h1, #mainPage h2{
+    font-family: "Caviar Dreams Bold";
+}
+#mainPage a, #mainPage p{
+    font-family: "Caviar Dreams";
 }
 
 #mainPage main{
