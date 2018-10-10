@@ -16,7 +16,7 @@
 
     -- Chris Coyier (2016), 'Using @font-face'. CSS-Tricks [online] Accessed 02-10-2018, <https://css-tricks.com/snippets/css/using-font-face/> --
     -- Alexis (2015) 'Browser Font support comparison'. [online] Accessed 02-10-2018 <https://socialcompare.com/en/comparison/browser-fonts-support-comparison> --
-
+     TODO Explain why Google/CSS tricks has helped and update the references to be better formatted.
      */
     src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge */
     src: local('Material Icons'),
@@ -120,6 +120,18 @@ nav{
     width: 40px;
     white-space: nowrap;
 
+    /*
+
+    Used the following link when deciding whether to use the box shadow or drop shadow.
+    [1] The box shadow has better support for all browsers and is less intensive to render, meaning it will be better
+    on mobile.
+
+    -1-  Geoff Graham (20/10/2017) 'Breaking down CSS Box Shadow vs. Drop Shadow'. [online] Accessed 10/10/18 <https://css-tricks.com/breaking-css-box-shadow-vs-drop-shadow/> --
+     */
+    box-shadow: inset -4px 0 10px #000;
+    -moz-box-shadow: inset -4px 0 10px #000;
+    -webkit-box-shadow: inset -4px 0 10px #000;
+
     /*Transition from collapsed to extended*/
     transition: width 0.5s ease-in-out;
     -webkit-transition: width 0.5s ease-in-out;
@@ -128,7 +140,7 @@ nav{
     -o-transition: width 0.5s ease-in-out;
 }
 nav .nav-header{
-        border-bottom: 1px solid #494949;
+    border-bottom: 5px solid #6e6e6e;
 }
 nav .nav-header img{
     /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
