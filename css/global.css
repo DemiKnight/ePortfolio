@@ -120,17 +120,9 @@ nav{
     width: 40px;
     white-space: nowrap;
 
-    /*
-
-    Used the following link when deciding whether to use the box shadow or drop shadow.
-    [1] The box shadow has better support for all browsers and is less intensive to render, meaning it will be better
-    on mobile.
-
-    -1-  Geoff Graham (20/10/2017) 'Breaking down CSS Box Shadow vs. Drop Shadow'. [online] Accessed 10/10/18 <https://css-tricks.com/breaking-css-box-shadow-vs-drop-shadow/> --
-     */
-    box-shadow: inset -4px 0 10px #000;
-    -moz-box-shadow: inset -4px 0 10px #000;
-    -webkit-box-shadow: inset -4px 0 10px #000;
+    box-shadow: inset -2px 0 10px #000;
+    -moz-box-shadow: inset -2px 0 10px #000;
+    -webkit-box-shadow: inset -2px 0 10px #000;
 
     /*Transition from collapsed to extended*/
     transition: width 0.5s ease-in-out;
@@ -138,6 +130,11 @@ nav{
     -moz-transition: width 0.5s ease-in-out;
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
+
+    /**
+    TODO Animate box shadow
+    http://tobiasahlin.com/blog/how-to-animate-box-shadow/
+     */
 }
 nav .nav-header{
     border-bottom: 5px solid #6e6e6e;
@@ -154,6 +151,16 @@ nav .nav-header img{
 nav:hover, nav:active, nav:focus{
     width: 15vw;
     max-width: 220px;
+
+    /*
+    Used the following link when deciding whether to use the box shadow or drop shadow.
+    [1] The box shadow has better support for all browsers and is less intensive to render, meaning it will be better
+    on mobile.
+    -1-  Geoff Graham (20/10/2017) 'Breaking down CSS Box Shadow vs. Drop Shadow'. [online] Accessed 10/10/18 <https://css-tricks.com/breaking-css-box-shadow-vs-drop-shadow/> --
+    */
+    box-shadow: inset -4px 0 10px #000;
+    -moz-box-shadow: inset -4px 0 10px #000;
+    -webkit-box-shadow: inset -4px 0 10px #000;
 
     /*Transition from extended to collapsed*/
     transition: width 0.5s ease-in-out;
