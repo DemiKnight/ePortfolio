@@ -205,10 +205,16 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     flex: 1;
     height: 100vh;
 
+    /*
+    Allows the content to scroll, if the content exceeds the height of the viewport.
+     */
+    overflow-x: hidden;
+
     background: #013859;
     color: #FFFFF8;
 }
 #mainPage header{
+
     font-family: "Caviar Dreams Bold", sans-serif;
     margin: 0;
     padding: 0.6rem;
@@ -220,6 +226,10 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 }
 #mainPage a, #mainPage p{
     font-family: "Caviar Dreams";
+}
+#mainPage a:link, #mainPage a:visited{
+    color: #21BEDA;
+    text-decoration: none;
 }
 
 #mainPage main{
