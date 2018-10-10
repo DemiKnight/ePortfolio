@@ -114,7 +114,7 @@ nav{
     height: 100vh;
     background: #2a2a2a;
     max-width: 220px;
-    clear: both;
+    /*clear: both;*/
 
     overflow: hidden;
     width: 40px;
@@ -128,7 +128,7 @@ nav{
     -o-transition: width 0.5s ease-in-out;
 }
 nav:hover, nav:active, nav:focus{
-    width: 15%;
+    width: 15vw;
     max-width: 220px;
 
     /*Transition from extended to collapsed*/
@@ -203,14 +203,51 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     visibility: visible;
     opacity: 1;
 }
+
 /* Main Content page.*/
 #mainPage{
     float: left;
-    width: 80%;
-
+    flex: 1;
     height: 100vh;
-    /*padding-left: 5px;*/
+
+    /*
+    Allows the content to scroll, if the content exceeds the height of the viewport.
+     */
+    overflow-x: hidden;
+
+    background: #013859;
+    color: #FFFFF8;
+}
+#mainPage header{
+
+    font-family: "Caviar Dreams Bold", sans-serif;
+    margin: 0;
+    padding: 0.6rem;
+    background: #0F1E32;
+    color: #EB3E4A;
+}
+#mainPage h1, #mainPage h2{
+    font-family: "Caviar Dreams Bold";
+}
+#mainPage a, #mainPage p{
+    font-family: "Caviar Dreams";
+}
+#mainPage a:link, #mainPage a:visited{
+    color: #21BEDA;
+    text-decoration: none;
+}
+
+#mainPage main{
+    padding: 10px;
+}
+#mainPage main article{
+
+}
+#mainPage footer {
+    background: antiquewhite;
 }
 body{
     margin: 0;
+    width: 100vw;
+    display: flex;
 }
