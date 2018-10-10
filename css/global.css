@@ -127,6 +127,9 @@ nav{
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
 }
+nav .nav-header{
+        border-bottom: 1px solid #494949;
+}
 nav .nav-header img{
     /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
     border-radius: 50px;
@@ -156,22 +159,29 @@ nav a{
     display: inherit;
     white-space: nowrap;
 }
+/* All typography on the navigation bar, except from the header*/
 nav a, nav i {
+    /* Aesthetic properties */
     color: #ffffff;
     font-size: 1.25rem;
     font-family: "Caviar Dreams Bold", sans-serif;
     text-decoration: none;
+
+    /*Positioning*/
     height: 100%;
     line-height: 100%;
 }
 nav h1{
+    /* Aesthetic properties */
     font-size: 1.5rem;
     font-family: "Caviar Dreams Bold", sans-serif;
 }
 nav ul{
-    list-style: none;
-    -webkit-padding-start: 2px;
+    margin-top: 0;
+    list-style: none; /* Aesthetic properties */
 
+    /*Positioning*/
+    -webkit-padding-start: 2px;
     display: inline-block;
 }
 nav ul > li{
