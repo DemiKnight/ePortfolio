@@ -130,6 +130,11 @@ nav{
 nav .nav-header img{
     /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
     border-radius: 50px;
+
+    /*Makes the image centre when the navigation bar is extended*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 nav:hover, nav:active, nav:focus{
     width: 15vw;
@@ -158,6 +163,10 @@ nav a, nav i {
     text-decoration: none;
     height: 100%;
     line-height: 100%;
+}
+nav h1{
+    font-size: 1.5rem;
+    font-family: "Caviar Dreams Bold", sans-serif;
 }
 nav ul{
     list-style: none;
