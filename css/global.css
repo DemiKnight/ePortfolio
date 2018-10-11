@@ -234,13 +234,15 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 
 #mainPage main{
     padding: 10px;
+
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: row; /* Makes the articles form row's*/
+    flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
+    justify-content: center; /*Keeps the content inside from squashing up*/
 }
 #mainPage main article{
-    outline: #FFFFF8 solid 2px;
-    display: inline-block;
+    border: #FFFFF8 solid 2px;
+    border-radius: 10px;
     margin: 5px;
 }
 #mainPage main article section{
