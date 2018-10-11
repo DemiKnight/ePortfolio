@@ -234,9 +234,20 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 
 #mainPage main{
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 #mainPage main article{
-
+    outline: #FFFFF8 solid 2px;
+    display: inline-block;
+    margin: 5px;
+}
+#mainPage main article section{
+    padding: 5px;
+}
+#mainPage main article h2{
+    text-align: center;
 }
 #mainPage footer {
     background: antiquewhite;
