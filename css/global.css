@@ -227,7 +227,7 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 #mainPage a, #mainPage p{
     font-family: "Caviar Dreams";
 }
-#mainPage a:link, #mainPage a:visited{
+#mainPage a:any-link{
     color: #21BEDA;
     text-decoration: none;
 }
