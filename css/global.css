@@ -238,7 +238,9 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     display: flex;
     flex-direction: row; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
-    justify-content: center; /*Keeps the content inside from squashing up*/
+    /*justify-content: center; !*Keeps the content inside from squashing up*!*/
+    align-items: flex-start;
+    align-content: flex-start;
 }
 #mainPage main article{
     border: #FFFFF8 solid 2px;
@@ -246,17 +248,17 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     margin: 5px;
 
     display: flex;
-    flex-direction: row; /* Makes the articles form row's*/
+    flex-direction: column; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
-    justify-content: center; /*Keeps the content inside from squashing up*/
+    justify-content: flex-start; /*Keeps the content inside from squashing up*/
+
 }
 #mainPage main article section{
     padding: 5px;
 }
 #mainPage main article h2{
     text-align: center;
-    display: inline-block;
-    width: 100%;
+    border-bottom: #FFFFF8 solid 1px;
 }
 #mainPage footer {
     background: antiquewhite;
