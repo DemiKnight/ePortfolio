@@ -213,6 +213,11 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     background: #013859;
     color: #FFFFF8;
 }
+#mainPage section img{
+    /* By default, if an image is scaled then the browser will attempt to apply aliasing, however this can cause text
+      to become unreadable.*/
+    image-rendering: pixelated;
+}
 #mainPage header{
 
     font-family: "Caviar Dreams Bold", sans-serif;
@@ -221,10 +226,10 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     background: #0F1E32;
     color: #EB3E4A;
 }
-#mainPage h1, #mainPage h2{
+#mainPage h1, #mainPage h2, #mainPage h3 {
     font-family: "Caviar Dreams Bold";
 }
-#mainPage a, #mainPage p{
+#mainPage a, #mainPage p, #mainPage span{
     font-family: "Caviar Dreams";
 }
 #mainPage a:link, #mainPage a:visited{
@@ -238,18 +243,26 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     display: flex;
     flex-direction: row; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
-    justify-content: center; /*Keeps the content inside from squashing up*/
+    /*justify-content: center; !*Keeps the content inside from squashing up*!*/
+    align-items: flex-start;
+    align-content: flex-start;
 }
 #mainPage main article{
     border: #FFFFF8 solid 2px;
     border-radius: 10px;
     margin: 5px;
+
+    display: flex;
+    flex-direction: column; /* Makes the articles form row's*/
+    flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
+    justify-content: flex-start; /*Keeps the content inside from squashing up*/
 }
 #mainPage main article section{
     padding: 5px;
 }
 #mainPage main article h2{
     text-align: center;
+    border-bottom: #FFFFF8 solid 1px;
 }
 #mainPage footer {
     background: antiquewhite;
