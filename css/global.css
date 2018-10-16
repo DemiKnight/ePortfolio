@@ -141,18 +141,21 @@ nav{
 nav .nav-header{
     border-bottom: 5px solid #6e6e6e;
     visibility: hidden;
-}
-nav .nav-header img{
-    /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
-    border-radius: 50px;
-
-    /*Makes the image centre when the navigation bar is extended*/
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    display: none;
 }
 nav:hover .nav-header{
     visibility: visible;
+    display: inherit;
+}
+/*todo Add smooth transition onto navigation bar header, ease in from the top*/
+nav .nav-header img{
+/*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
+border-radius: 50px;
+
+/*Makes the image centre when the navigation bar is extended*/
+display: block;
+margin-left: auto;
+margin-right: auto;
 }
 nav:hover, nav:active, nav:focus{
     width: 15vw;
