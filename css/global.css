@@ -255,7 +255,7 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     border-radius: 10px;
     margin: 5px;
 
-    min-width: 60px;
+    min-width: 15%;
     max-width: 28%;
 
     display: flex;
@@ -273,6 +273,15 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 #mainPage footer {
     background: antiquewhite;
 }
+#mainPagePortrait{
+    width: 20vw;
+    height: 20vh;
+    background-image: url("../resources/images/me.JPG");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
 body{
     margin: 0;
     width: 100vw;
