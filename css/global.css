@@ -274,8 +274,8 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     background: antiquewhite;
 }
 #mainPagePortrait{
-    width: 20vw;
-    height: 20vh;
+    width: 25vw;
+    height: 25vh;
     background-image: url("../resources/images/me.JPG");
     background-repeat: no-repeat;
     background-size: contain;
