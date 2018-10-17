@@ -212,6 +212,7 @@ nav ul{
 
     /*Positioning*/
     -webkit-padding-start: 2px;
+    padding-left: 2px;
     display: inline-block;
 }
 nav ul > li{
