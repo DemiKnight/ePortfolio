@@ -225,9 +225,6 @@ nav ul li .material-icons, nav ul li .material-icons ul li i{
     font-size: 36px;
     color: inherit;
 }
-nav span{
-    display: inline-block;
-}
 nav ul li > ul > li{
     padding-left: 30px;
     padding-bottom: 0;
@@ -240,25 +237,36 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
-/* Hides the navigation dropdown items by default, until it is overwritten by a later rule. */
-nav ul li a + ul{
-    display: none;
-    visibility: collapse;
-    opacity: 0;
+/*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
+/*nav ul li a + ul{*/
+    /*display: none;*/
+    /*visibility: collapse;*/
+    /*opacity: 0;*/
 
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    -ms-transition: opacity 0.2s ease-in-out;
-    -o-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
-}
-/* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. */
-nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
-    display: inherit;
-    /*transition: display 0.2s ease-in-out;*/
-    visibility: visible;
-    opacity: 1;
-}
+    /*-webkit-transition: opacity 0.2s ease-in-out;*/
+    /*-moz-transition: opacity 0.2s ease-in-out;*/
+    /*-ms-transition: opacity 0.2s ease-in-out;*/
+    /*-o-transition: opacity 0.2s ease-in-out;*/
+    /*transition: opacity 0.2s ease-in-out;*/
+/*}*/
+
+/*!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!*/
+/*nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{*/
+    /*display: inherit;*/
+    /*!*transition: display 0.2s ease-in-out;*!*/
+    /*visibility: visible;*/
+    /*opacity: 1;*/
+/*}*/
+
+/*nav ul li > ul li:active, nav ul li > ul li:focus{*/
+    /*display: inherit;*/
+    /*!*transition: display 0.2s ease-in-out;*!*/
+    /*visibility: visible;*/
+    /*opacity: 1;*/
+/*}*/
+
+
+
 
 /* Main Content page.*/
 #mainPage{
