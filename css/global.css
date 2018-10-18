@@ -16,15 +16,24 @@
 
     -- Chris Coyier (2016), 'Using @font-face'. CSS-Tricks [online] Accessed 02-10-2018, <https://css-tricks.com/snippets/css/using-font-face/> --
     -- Alexis (2015) 'Browser Font support comparison'. [online] Accessed 02-10-2018 <https://socialcompare.com/en/comparison/browser-fonts-support-comparison> --
+     TODO Explain why Google/CSS tricks has helped and update the references to be better formatted.
+
+     Legend:
+        - Google Chrome     == GC
+        - Firefox           == FF
+        - Opera             == Op
+        - Internet Explorer == IE
+        - Edge (Windows 10) == Ed
+        - Safari            == Sf
 
      */
     src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge */
     src: local('Material Icons'),
             local('MaterialIcons-regular'),
                 url("fonts/MaterialIcons-Regular.eot?#iefix") format('embedded-opentype'), /*IE6-IE8 */
-                url("fonts/MaterialIcons-Regular.woff2") format('woff2'), /*                 GC 43+, FF  39+, Op    31+, IE  NA, Ed  Na, Saf NA */
-                url("fonts/MaterialIcons-Regular.woff")  format('woff'), /*                  GC  6+, FF 3.6+, Op 11.10+, IE  9+, Ed 12+, Saf 5.1+ */
-                url("fonts/MaterialIcons-Regular.ttf")   format('truetype'); /*              GC  4+, FF 3.5+, Op  10.1+, IE 10+, Ed 13+, Saf 3.1+  */
+                url("fonts/MaterialIcons-Regular.woff2") format('woff2'), /*                 GC 43+, FF  39+, Op    31+, IE  NA, Ed  Na, Sf NA */
+                url("fonts/MaterialIcons-Regular.woff")  format('woff'), /*                  GC  6+, FF 3.6+, Op 11.10+, IE  9+, Ed 12+, Sf 5.1+ */
+                url("fonts/MaterialIcons-Regular.ttf")   format('truetype'); /*              GC  4+, FF 3.5+, Op  10.1+, IE 10+, Ed 13+, Sf 3.1+  */
 }
 /* # Caviar Dreams #
     The following is the primary font used throughout the project, which is freeware.
@@ -107,6 +116,8 @@
 
     /* Internet Explorer */
     font-feature-settings: 'liga';
+
+
 }
 /* Navigation */
 nav{
@@ -114,11 +125,15 @@ nav{
     height: 100vh;
     background: #2a2a2a;
     max-width: 220px;
-    /*clear: both;*/
+
 
     overflow: hidden;
     width: 40px;
     white-space: nowrap;
+
+    box-shadow: inset -2px 0 10px #000;
+    -moz-box-shadow: inset -2px 0 10px #000;
+    -webkit-box-shadow: inset -2px 0 10px #000;
 
     /*Transition from collapsed to extended*/
     transition: width 0.5s ease-in-out;
@@ -126,10 +141,44 @@ nav{
     -moz-transition: width 0.5s ease-in-out;
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
+
+    /**
+    TODO Animate box shadow
+    http://tobiasahlin.com/blog/how-to-animate-box-shadow/
+     */
+}
+nav .nav-header{
+    border-bottom: 5px solid #6e6e6e;
+    visibility: hidden;
+    display: none;
+}
+nav:hover .nav-header{
+    visibility: visible;
+    display: inherit;
+}
+/*todo Add smooth transition onto navigation bar header, ease in from the top*/
+nav .nav-header img{
+/*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
+border-radius: 50px;
+
+/*Makes the image centre when the navigation bar is extended*/
+display: block;
+margin-left: auto;
+margin-right: auto;
 }
 nav:hover, nav:active, nav:focus{
     width: 15vw;
     max-width: 220px;
+
+    /*
+    Used the following link when deciding whether to use the box shadow or drop shadow.
+    [1] The box shadow has better support for all browsers and is less intensive to render, meaning it will be better
+    on mobile.
+    -1-  Geoff Graham (20/10/2017) 'Breaking down CSS Box Shadow vs. Drop Shadow'. [online] Accessed 10/10/18 <https://css-tricks.com/breaking-css-box-shadow-vs-drop-shadow/> --
+    */
+    box-shadow: inset -4px 0 10px #000;
+    -moz-box-shadow: inset -4px 0 10px #000;
+    -webkit-box-shadow: inset -4px 0 10px #000;
 
     /*Transition from extended to collapsed*/
     transition: width 0.5s ease-in-out;
@@ -138,25 +187,44 @@ nav:hover, nav:active, nav:focus{
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
 }
+nav h1{
+    /*white-space: normal;*/
+    color: #ffffff;
+    text-align: center;
+}
 nav a{
     display: inherit;
     white-space: nowrap;
 }
+/* All typography on the navigation bar, except from the header*/
 nav a, nav i {
+    /* Aesthetic properties */
     color: #ffffff;
     font-size: 1.25rem;
     font-family: "Caviar Dreams Bold", sans-serif;
     text-decoration: none;
+
+    /*Positioning*/
     height: 100%;
     line-height: 100%;
+    vertical-align: middle;
+}
+
+nav h1{
+    /* Aesthetic properties */
+    font-size: 1.5rem;
+    font-family: "Caviar Dreams Bold", sans-serif;
 }
 nav ul{
-    list-style: none;
-    -webkit-padding-start: 2px;
+    margin-top: 0;
+    list-style: none; /* Aesthetic properties */
 
+    /*Positioning*/
+    -webkit-padding-start: 2px;
+    padding-left: 2px;
     display: inline-block;
 }
-av ul > li{
+nav ul > li{
     padding-top: 5px;
     padding-bottom: 5px;
     white-space: nowrap;
@@ -166,7 +234,6 @@ nav ul li .material-icons, nav ul li .material-icons ul li i{
     font-size: 36px;
     color: inherit;
 }
-
 nav ul li > ul > li{
     padding-left: 30px;
     padding-bottom: 0;
@@ -179,25 +246,36 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
-/* Hides the navigation dropdown items by default, until it is overwritten by a later rule. */
-nav ul li a + ul{
-    display: none;
-    visibility: collapse;
-    opacity: 0;
+/*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
+/*nav ul li a + ul{*/
+    /*display: none;*/
+    /*visibility: collapse;*/
+    /*opacity: 0;*/
 
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    -ms-transition: opacity 0.2s ease-in-out;
-    -o-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
-}
-/* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. */
-nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
-    display: inherit;
-    /*transition: display 0.2s ease-in-out;*/
-    visibility: visible;
-    opacity: 1;
-}
+    /*-webkit-transition: opacity 0.2s ease-in-out;*/
+    /*-moz-transition: opacity 0.2s ease-in-out;*/
+    /*-ms-transition: opacity 0.2s ease-in-out;*/
+    /*-o-transition: opacity 0.2s ease-in-out;*/
+    /*transition: opacity 0.2s ease-in-out;*/
+/*}*/
+
+/*!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!*/
+/*nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{*/
+    /*display: inherit;*/
+    /*!*transition: display 0.2s ease-in-out;*!*/
+    /*visibility: visible;*/
+    /*opacity: 1;*/
+/*}*/
+
+/*nav ul li > ul li:active, nav ul li > ul li:focus{*/
+    /*display: inherit;*/
+    /*!*transition: display 0.2s ease-in-out;*!*/
+    /*visibility: visible;*/
+    /*opacity: 1;*/
+/*}*/
+
+
+
 
 /* Main Content page.*/
 #mainPage{
@@ -213,18 +291,26 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     background: #013859;
     color: #FFFFF8;
 }
-#mainPage header{
+#mainPage section img{
+    /* By default, if an image is scaled then the browser will attempt to apply aliasing, however this can cause text
+      to become unreadable.*/
+    image-rendering: pixelated;
+    object-fit: cover;
 
+    min-height: 100%;
+    width: auto;
+}
+#mainPage header{
     font-family: "Caviar Dreams Bold", sans-serif;
     margin: 0;
     padding: 0.6rem;
     background: #0F1E32;
     color: #EB3E4A;
 }
-#mainPage h1, #mainPage h2{
+#mainPage h1, #mainPage h2, #mainPage h3 {
     font-family: "Caviar Dreams Bold";
 }
-#mainPage a, #mainPage p{
+#mainPage a, #mainPage p, #mainPage span{
     font-family: "Caviar Dreams";
 }
 #mainPage a:link, #mainPage a:visited{
@@ -238,22 +324,42 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     display: flex;
     flex-direction: row; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
-    justify-content: center; /*Keeps the content inside from squashing up*/
+    /*justify-content: center; !*Keeps the content inside from squashing up*!*/
+    align-items: flex-start;
+    align-content: flex-start;
 }
 #mainPage main article{
     border: #FFFFF8 solid 2px;
     border-radius: 10px;
     margin: 5px;
+
+    min-width: 15%;
+    max-width: 28%;
+
+    display: flex;
+    flex-direction: column; /* Makes the articles form row's*/
+    flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
+    justify-content: flex-start; /*Keeps the content inside from squashing up*/
 }
 #mainPage main article section{
     padding: 5px;
 }
 #mainPage main article h2{
     text-align: center;
+    border-bottom: #FFFFF8 solid 1px;
 }
 #mainPage footer {
     background: antiquewhite;
 }
+#mainPagePortrait{
+    width: 25vw;
+    height: 25vh;
+    background-image: url("../resources/images/me.JPG");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
 body{
     margin: 0;
     width: 100vw;
