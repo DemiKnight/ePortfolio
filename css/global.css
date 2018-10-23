@@ -260,6 +260,12 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+nav ul li .nav-dropdown-item:hover a:before{
+    content: "play_arrow";
+    font-family: "Material Icons";
+    font-size: 36px;
+}
+
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
 /*nav ul li a + ul{*/
     /*display: none;*/
