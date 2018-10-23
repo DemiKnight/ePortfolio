@@ -68,5 +68,6 @@ main ul li:hover:before {
     /*visibility: visible;*/
     color: black;
     font-family: "Material Icons";
-    content: "arrow_forward_ios";
+    content: "chevron_right";
+    font-size: 1.5rem;
 }
