@@ -248,10 +248,12 @@ nav ul li .material-icons, nav ul li .material-icons ul li i{
     font-size: 36px;
     color: inherit;
 }
+/*Dropdown menu, adds indentation to the dropdown menu*/
 nav ul li > ul > li{
     padding-left: 30px;
     padding-bottom: 0;
 }
+
 nav ul li a:hover{
     color: #ED553B;
     -webkit-transition: color 0.3s ease;
@@ -260,11 +262,25 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+nav ul il .nav-dropdown-item a:before{
+    color: #2a2a2a; /*Background color*/
+
+    -webkit-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out;
+    -ms-transition: color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
 nav ul li .nav-dropdown-item:hover a:before{
     content: "play_arrow";
     font-family: "Material Icons";
     font-size: 36px;
+
+    color: #FFFFF8; /*font colour*/
+
+
 }
+
 
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
 /*nav ul li a + ul{*/
