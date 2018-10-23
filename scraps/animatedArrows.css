@@ -1,7 +1,31 @@
-
 main ul{
     list-style: none;
+    padding-left: 0;
 }
-main ul li:hover:before{
-    content: "> ";
+main ul li{
+    margin-left: 0.5rem;
+
+    -webkit-transition: margin-left 0.5s ;
+    -moz-transition: margin-left 0.5s ;
+    -ms-transition: margin-left 0.5s ;
+    -o-transition: margin-left 0.5s ;
+    transition: margin-left 0.5s ;
+}
+main ul li:hover{
+    margin-left: 1rem;
+}
+main ul li:before{
+    content:"";
+
+    color: #ffffff;
+    -webkit-transition: color 0.5s ;
+    -moz-transition: color 0.5s ;
+    -ms-transition: visibility 0.5s ;
+    -o-transition: visibility 0.5s ;
+    transition: color 0.5s ;
+}
+main ul li:hover:before {
+    /*visibility: visible;*/
+    color: black;
+    content: ">";
 }
