@@ -195,6 +195,13 @@ nav h1{
 nav a{
     display: inherit;
     white-space: nowrap;
+    height: 100%;
+
+    /*
+    Increased surface area of button, making it easier for accessibility.
+    */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 /* All typography on the navigation bar, except from the header*/
 nav a, nav i {
@@ -219,14 +226,16 @@ nav ul{
     margin-top: 0;
     list-style: none; /* Aesthetic properties */
 
+    width: 95%;
+
     /*Positioning*/
     -webkit-padding-start: 2px;
     padding-left: 2px;
     display: inline-block;
 }
 nav ul > li{
-    padding-top: 5px;
-    padding-bottom: 5px;
+    /*padding-top: 5px;*/
+    /*padding-bottom: 5px;*/
     white-space: nowrap;
 }
 nav ul > li span{
