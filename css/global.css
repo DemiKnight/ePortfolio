@@ -252,16 +252,21 @@ TODO Will add if the img tag is used.
     align-items: flex-start; /*Makes height adjust for the size of the content inside*/
 }
 #mainPage main article{
-    border: #FFFFF8 solid 2px;
-    border-radius: 10px;
     margin: 5px;
-
+    /*Stop the width of the each element from being outside of a certain range.*/
     min-width: 15%;
     max-width: 28%;
 
+    /*Added border to separate all content form the rest of the page, making it easy to see it is separate from the rest of the content on the page */
+    border: #FFFFF8 solid 2px;
+    border-radius: 10px;
+
+    /*Makes the article a container, with the internal sections flex items.
+    This may allow for sections within to resize based on the content. However this is currently WIP.
+    */
     display: flex;
-    flex-direction: column; /* Makes the articles form row's*/
-    flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
+    flex-direction: column; /* Makes the sections form columns within the article*/
+    flex-wrap: wrap; /*If the content can't fit in the section, it will wrap underneath */
     justify-content: flex-start; /*Keeps the content inside from squashing up*/
 }
 #mainPage main article section{
