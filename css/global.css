@@ -114,7 +114,7 @@ nav{
     height: 100vh;
     background: #2a2a2a;
     max-width: 220px;
-    /*clear: both;*/
+
 
     overflow: hidden;
     width: 40px;
@@ -201,54 +201,55 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 
 /* Main Content page.*/
 #mainPage{
+    /*Set main page container to float next to the navigation bar*/
     float: left;
+    /*Set this to a flex container*/
     flex: 1;
+    /*Set the height to the maximum of the viewport,*/
     height: 100vh;
 
-    /*
-    Allows the content to scroll, if the content exceeds the height of the viewport.
-     */
-    overflow-x: hidden;
+    overflow-x: hidden;/*Allows the content to scroll, if the content exceeds the height of the viewport.*/
 
     background: #013859;
     color: #FFFFF8;
 }
-#mainPage section img{
-    /* By default, if an image is scaled then the browser will attempt to apply aliasing, however this can cause text
-      to become unreadable.*/
-    image-rendering: pixelated;
-    object-fit: cover;
 
-    min-height: 100%;
-    width: auto;
-}
+/*
+TODO Will add if the img tag is used.
+#mainPage section img{}*/
+
 #mainPage header{
-    font-family: "Caviar Dreams Bold", sans-serif;
-    margin: 0;
+    margin: 0; /*Remove browser default*/
     padding: 0.6rem;
+
+    font-family: "Caviar Dreams Bold", sans-serif; /*Set the font and default*/
     background: #0F1E32;
     color: #EB3E4A;
 }
+/*For all headers use this font, within the main page*/
 #mainPage h1, #mainPage h2, #mainPage h3 {
-    font-family: "Caviar Dreams Bold";
+    font-family: "Caviar Dreams Bold", sans-serif;
 }
+/*For all other text element, use the normal sans-serif font*/
 #mainPage a, #mainPage p, #mainPage span{
-    font-family: "Caviar Dreams";
+    font-family: "Caviar Dreams", sans-serif;
 }
+/*All external links, use this colour*/
 #mainPage a:link, #mainPage a:visited{
     color: #21BEDA;
     text-decoration: none;
 }
 
 #mainPage main{
-    padding: 10px;
+    padding: 10px; /*Stop articles from being directly next to the edges of the viewport and navigation divider */
 
-    display: flex;
+    /*##Flex container settings##*/
+    display: flex; /*Enables this to be a flex container and apply flex-item displaying to each child element*/
     flex-direction: row; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
-    /*justify-content: center; !*Keeps the content inside from squashing up*!*/
-    align-items: flex-start;
-    align-content: flex-start;
+
+    /*##Flex items settings## child elements within the container*/
+    align-items: flex-start; /*Makes height adjust for the size of the content inside*/
 }
 #mainPage main article{
     border: #FFFFF8 solid 2px;
@@ -266,13 +267,13 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 #mainPage main article section{
     padding: 5px;
 }
+/*For each section, have a header giving a title and context to the specific */
 #mainPage main article h2{
     text-align: center;
-    border-bottom: #FFFFF8 solid 1px;
+    border-bottom: #FFFFF8 solid 1px; /*A border which acts as a separator, making it easier to read.*/
 }
-#mainPage footer {
-    background: antiquewhite;
-}
+/*Using a section to make a image more resizable/responsive. Still need to add a empty image tag to make it easier
+for screen readers.*/
 #mainPagePortrait{
     width: 25vw;
     height: 25vh;
@@ -283,7 +284,9 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 }
 
 body{
-    margin: 0;
+    margin: 0; /*Remove browser default*/
     width: 100vw;
+
+    /*Make every child element be responsive, specifically not wrapping. */
     display: flex;
 }
