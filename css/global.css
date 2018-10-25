@@ -121,16 +121,28 @@
 }
 /* Navigation */
 nav{
+    /*Makes the navigation float to the left of the viewport and make it relative to */
     float: left;
-    height: 100vh;
-    background: #2a2a2a;
+    height: 100vh;/*Makes the navigation bar full height*/
+
+    /*
+    When the navigation bar is closed, only take up 40px; the font size is 36px for the icons plus 4 padding.
+    TODO Change to rem, which changes the font size relative to the situation
+    */
+    width: 40px;
+    /*
+    Even when the navigation bar, don't go past 220px.
+    */
     max-width: 220px;
 
-
+    /*If the text exceeds the size of the navigation bar, hide it.
+     WIP
+     */
     overflow: hidden;
-    width: 40px;
-    white-space: nowrap;
 
+    background: #2a2a2a;
+
+    /*Add a drop-shadow to create contrast between the navigation bar and main content  */
     box-shadow: inset -2px 0 10px #000;
     -moz-box-shadow: inset -2px 0 10px #000;
     -webkit-box-shadow: inset -2px 0 10px #000;
@@ -141,35 +153,10 @@ nav{
     -moz-transition: width 0.5s ease-in-out;
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
-
-    /**
-    TODO Animate box shadow
-    http://tobiasahlin.com/blog/how-to-animate-box-shadow/
-     */
-}
-nav .nav-header{
-    border-bottom: 5px solid #6e6e6e;
-    visibility: hidden;
-    display: none;
-    margin-top: 5px;
-}
-nav:hover .nav-header{
-    visibility: visible;
-    display: inherit;
-}
-/*todo Add smooth transition onto navigation bar header, ease in from the top*/
-nav .nav-header img{
-/*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
-border-radius: 50px;
-
-/*Makes the image centre when the navigation bar is extended*/
-display: block;
-margin-left: auto;
-margin-right: auto;
 }
 nav:hover, nav:active, nav:focus{
+    /*Extend the size of the navigation bar to show all the items, links and header.*/
     width: 15vw;
-    max-width: 220px;
 
     /*
     Used the following link when deciding whether to use the box shadow or drop shadow.
@@ -188,10 +175,35 @@ nav:hover, nav:active, nav:focus{
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
 }
-nav h1{
-    /*white-space: normal;*/
-    color: #ffffff;
+/*The navigation bar has a header, with my profile picture and name.
+This will only be visible when the menu is extended.
+*/
+nav .nav-header{
+    border-bottom: 5px solid #6e6e6e; /*Visually separate the header from the rest of the navigation bar.*/
+    margin-top: 5px;
+
+    /*This completely removes the header from the flow of the page, allowing only the icons to show.
+    This removes the massive gap visible at the top of the navbar otherwise
+    */
+    display: none;
+
+    /*The Header within the nav-header*/
+    color: #FFFFF8;
     text-align: center;
+}
+nav:hover .nav-header{
+    /*Makes the header visible, once the navigation bar is extended.*/
+    display: inherit;
+}
+/*todo Add smooth transition onto navigation bar header, ease in from the top*/
+nav .nav-header img{
+    /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
+    border-radius: 50px;
+
+    /*Makes the image centre when the navigation bar is extended*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 nav a{
     display: inherit;
@@ -207,22 +219,22 @@ nav a{
 /* All typography on the navigation bar, except from the header*/
 nav a, nav i {
     /* Aesthetic properties */
-    color: #ffffff;
-    font-size: 1.25rem;
+    color: #FFFFF8;
+    font-size: 1.25rem; /*Sets the size of the navigation text, override by later by 'nav ul li .material-icons ul li i' */
     font-family: "Caviar Dreams Bold", sans-serif;
     text-decoration: none;
 
     /*Positioning*/
-    height: 100%;
-    line-height: 100%;
+    height: 100%; /*Make the encapsulating tag take up the full height of the parent element*/
+    /*Align the icon and the text */
     vertical-align: middle;
 }
 
-nav h1{
-    /* Aesthetic properties */
-    font-size: 1.5rem;
-    font-family: "Caviar Dreams Bold", sans-serif;
-}
+/*nav h1{*/
+    /*!* Aesthetic properties *!*/
+    /*font-size: 1.5rem;*/
+    /*font-family: "Caviar Dreams Bold", sans-serif;*/
+/*}*/
 nav ul{
     margin-top: 0;
     list-style: none; /* Aesthetic properties */
@@ -262,7 +274,7 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
-nav ul il .nav-dropdown-item a:before{
+nav ul li .nav-dropdown-item a:before{
     color: #2a2a2a; /*Background color*/
 
     -webkit-transition: color 0.3s ease-in-out;
@@ -273,12 +285,10 @@ nav ul il .nav-dropdown-item a:before{
 }
 nav ul li .nav-dropdown-item:hover a:before{
     content: "play_arrow";
-    font-family: "Material Icons";
+    font-family: "Material Icons", none;
     font-size: 36px;
 
     color: #FFFFF8; /*font colour*/
-
-
 }
 
 
