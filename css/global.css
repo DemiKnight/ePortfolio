@@ -317,9 +317,16 @@ nav ul li a:hover{
 #mainPage a, #mainPage p, #mainPage span{
     font-family: "Caviar Dreams";
 }
-#mainPage a:link, #mainPage a:visited{
+#mainPage a:any-link{
     color: #21BEDA;
     text-decoration: none;
+}
+/*This will add the 'open in new' icon to any external link,
+ https://material.io/tools/icons/?icon=open_in_new&style=baseline
+ */
+#mainPage a[href^="https"]::after, #mainPage a[href^="http"]::after{
+    font-family: "Material Icons", sans-serif;
+    content: ' \e89e';
 }
 
 #mainPage main{
