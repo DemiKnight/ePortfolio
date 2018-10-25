@@ -263,17 +263,24 @@ font-size: 36px; /*Icon size*/
 /*color: inherit;*/
 }
 /*Dropdown menu, adds indentation to the dropdown menu*/
-a.nav-dropdown + ul > li{
-padding-left: 40px; /*Change from pixels to something relative*/
+/*a.nav-dropdown + ul > li{*/
+    /*!*padding-left: 40px; !*Change from pixels to something relative*!*!*/
+/*}*/
+nav ul li.nav-dropdown-item{
+    padding-left: 40px;
 }
-
+nav ul li.nav-dropdown-item:hover{
+    padding-left: 0;
+}
 /*
 This code will add a arrow when the item is active/hovered over.
 Uses the psudo class
 Information about the pseudo elements ':before' W3C (7-06-2016), 'CSS Pseudo-Elements Module Level 4'  [Online] <Accessed 20-10-2018> <https://www.w3.org/TR/css-pseudo-4/#selectordef-before>
 */
-nav ul li .nav-dropdown-item a:before{
+nav ul li.nav-dropdown-item:before{
     color: #2a2a2a; /*Background color*/
+
+    /*padding-left: 40px; !*Change from pixels to something relative*!*/
 
     -webkit-transition: color 0.3s ease-in-out;
     -moz-transition: color 0.3s ease-in-out;
@@ -281,7 +288,7 @@ nav ul li .nav-dropdown-item a:before{
     -o-transition: color 0.3s ease-in-out;
     transition: color 0.3s ease-in-out;
 }
-nav ul li .nav-dropdown-item:hover a:before{
+nav ul li .nav-dropdown-item:hover:before{
     /*This is an icon implemented by Material Icon*/
     content: "play_arrow";
     font-family: "Material Icons", none;
