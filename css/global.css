@@ -1,3 +1,18 @@
+/*
+
+## FLexbox research
+Flexbox is used repeatedly in the page to organise content. When I realised I was using it for organising all elements,
+I did some research into what the performance hit would be. I found the following article [1] exploring whether flexbox is
+considered performance intensive, by comparing it to the old "box" layout property.
+
+I then found an article [2] showing benchmark results, specifically that flexbox was "2.3x" faster than a box layout.
+According to the article [2], flex uses "2 passes", to calculate the position, on the Blink rendering engine (the one that is in Chromium).
+
+
+-1- CHRIS COYIER, CSS-Tricks,(25/05/2016)  'Does Flexbox Have a Performance Problem?' [online] Accessed 26/10/2018 <https://css-tricks.com/couple-takes-sticky-footer/>---
+-2- Paul Irish, Google,(2/07/2018) 'Flexbox layout isn't slow' [online] Accessed 26/10/2018 <https://developers.google.com/web/updates/2013/10/Flexbox-layout-isn-t-slow>---
+*/
+
 /* ## Fonts ## */
 @font-face {
     font-family: 'Material Icons';
@@ -179,9 +194,12 @@ nav:hover, nav:active, nav:focus{
 This will only be visible when the menu is extended.
 */
 nav .nav-header{
-    border-bottom: 5px solid #6e6e6e; /*Visually separate the header from the rest of the navigation bar.*/
-    margin-top: 5px;
+    border-top: 5px solid #6e6e6e; /*Visually separate the header from the rest of the navigation bar.*/
+    padding-top: 10px;
 
+    position: fixed;
+    bottom: 0px;
+    width: 15vw;
     /*This completely removes the header from the flow of the page, allowing only the icons to show.
     This removes the massive gap visible at the top of the navbar otherwise
     */
