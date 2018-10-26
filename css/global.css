@@ -305,7 +305,8 @@ nav ul li .material-icons{
 nav ul li.nav-dropdown-item{
     padding-left: 40px;
     display: inline-block; /*The text and icon will be on the same line*/
-
+    white-space: nowrap;
+    overflow: hidden;
 }
 nav:hover ul li.nav-dropdown-item{
     padding-left: 0;
