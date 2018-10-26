@@ -275,15 +275,13 @@ nav ul li a:hover{
     transition: color 0.3s ease;
 }
 nav ul > li span{
-/*Make the text and icon style next to each other*/
-display: inline-block;
+/*Make the text and icon sit next to each other*/
+    display: inline-block;
 }
 
 /* Selecting the icons on the navigation bar*/
 nav ul li .material-icons{
-font-size: 36px; /*Icon size*/
-/*color: inherit;*/
-
+    font-size: 36px; /*Icon size*/
 }
 
 /*Dropdown menu, adds indentation to the dropdown menu*/
@@ -291,15 +289,6 @@ nav ul li.nav-dropdown-item{
     padding-left: 40px;
     display: inline-block; /*The text and icon will be on the same line*/
 
-    vertical-align: middle;
-
-    /*padding-left: 0;*/
-
-    /*-webkit-transition: padding-left 0.5s ease-in-out;*/
-    /*-moz-transition: padding-left 0.5s ease-in-out;*/
-    /*-ms-transition: padding-left 0.5s ease-in-out;*/
-    /*-o-transition: padding-left 0.5s ease-in-out;*/
-    /*transition: padding-left 0.5s ease-in-out;*/
 }
 nav:hover ul li.nav-dropdown-item{
     padding-left: 0;
@@ -310,18 +299,18 @@ Uses the psudo class
 Information about the pseudo elements ':before' W3C (7-06-2016), 'CSS Pseudo-Elements Module Level 4'  [Online] <Accessed 20-10-2018> <https://www.w3.org/TR/css-pseudo-4/#selectordef-before>
 */
 nav ul li.nav-dropdown-item::before{
-    transition: right 0.3s ease-in-out;
-
     /*This is an icon implemented by Material Icon*/
     content: "play_arrow";
     font-family: "Material Icons", none;
     font-size: 36px;
 
-    opacity: 0;
+    /*Align arrow with the rest of the text*/
     vertical-align: middle;
 
     color: #FFFFF8; /*font colour*/
 
+    /*Used to control the fade of navigation arrow, from the invisible to visible state*/
+    opacity: 0;
     -webkit-transition: opacity 0.3s ease-in-out;
     -moz-transition: opacity 0.3s ease-in-out;
     -ms-transition: opacity 0.3s ease-in-out;
