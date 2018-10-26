@@ -157,6 +157,12 @@ nav{
 
     background: #2a2a2a;
 
+
+    /*### Flex Settings ### Container*/
+    display: flex;
+    flex-direction: column;
+
+
     /*Add a drop-shadow to create contrast between the navigation bar and main content  */
     box-shadow: inset -2px 0 10px #000;
     -moz-box-shadow: inset -2px 0 10px #000;
@@ -197,9 +203,12 @@ nav .nav-header{
     border-top: 5px solid #6e6e6e; /*Visually separate the header from the rest of the navigation bar.*/
     padding-top: 10px;
 
-    position: fixed;
-    bottom: 0px;
-    width: 15vw;
+    /*### Flex Settings ### Child
+    When the Ul takes up the available space, this will stop it being pushed off the page.
+    It will thus be placed at the bottom of the page.
+    */
+    flex-shrink: 0;
+
     /*This completely removes the header from the flow of the page, allowing only the icons to show.
     This removes the massive gap visible at the top of the navbar otherwise
     */
@@ -258,6 +267,11 @@ nav a, nav i {
 nav ul{
     margin-top: 0; /*Remove browser default*/
     list-style: none;
+
+    /*### Flex Settings ### Child
+    Using flex to force the element "grow" to the height of the page, taking up any available space
+    */
+    flex: 1 0 auto;
 
     /*Makes the text wrap before it can hit the shadow */
     width: 95%;
