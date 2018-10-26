@@ -212,6 +212,10 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
 
     background: #013859;
     color: #FFFFF8;
+
+    /*Improves readability of text*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /*
