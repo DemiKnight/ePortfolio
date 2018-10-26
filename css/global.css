@@ -267,6 +267,7 @@ font-size: 36px; /*Icon size*/
 /*color: inherit;*/
 
 }
+
 /*Dropdown menu, adds indentation to the dropdown menu*/
 nav ul li.nav-dropdown-item{
     padding-left: 40px;
@@ -274,14 +275,19 @@ nav ul li.nav-dropdown-item{
 
     vertical-align: center;
 
+    /*padding-left: 0;*/
+
     /*-webkit-transition: padding-left 0.5s ease-in-out;*/
     /*-moz-transition: padding-left 0.5s ease-in-out;*/
     /*-ms-transition: padding-left 0.5s ease-in-out;*/
     /*-o-transition: padding-left 0.5s ease-in-out;*/
     /*transition: padding-left 0.5s ease-in-out;*/
 }
-nav ul li.nav-dropdown-item:hover{
+nav:hover ul li.nav-dropdown-item{
     padding-left: 0;
+}
+nav ul li.nav-dropdown-item:hover{
+    /*padding-left: 0;*/
 }
 /*
 This code will add a arrow when the item is active/hovered over.
