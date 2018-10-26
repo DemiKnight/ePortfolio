@@ -252,7 +252,12 @@ TODO Will add if the img tag is used.
         When implementing flex, including the decision to use flex over "box" or any other layout property, I used this article
         [1] to improve my pre-existing knowledge and learn any new features flex-box uses.
 
+        [2] Was used to determine the amount of users who use browsers incapable of rendering flex-box.
+        This was found to be at most 5.25% and min of 4.2%. I believe this percentage of is small enough to contend with
+        any anyone using IE 6-9 will already be encountering issues on the web.
+
         -1- W3C (19/10/2017), 'CSS Flexible Box Layout Module Level 1' [online] Accessed 26/10/2018 <https://www.w3.org/TR/2017/CR-css-flexbox-1-20171019/> ---
+        -2- CanIUse 'CSS Flexible Box Layout Module' [online] Accessed 26/10/2018 <https://caniuse.com/#feat=flexbox> ---
     */
 
     /*##Flex container settings##*/
