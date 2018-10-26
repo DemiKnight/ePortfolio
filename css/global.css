@@ -224,7 +224,7 @@ nav .nav-header{
 }
 nav:hover .nav-header{
     /*Makes the header visible, once the navigation bar is extended.*/
-    display: inherit;
+    display: block;
 }
 /*todo Add smooth transition onto navigation bar header, ease in from the top*/
 nav .nav-header img{
@@ -235,6 +235,9 @@ nav .nav-header img{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+nav .nav-header h1{
+    white-space: nowrap;
 }
 nav a{
     display: inherit;
