@@ -247,6 +247,14 @@ TODO Will add if the img tag is used.
 #mainPage main{
     padding: 10px; /*Stop articles from being directly next to the edges of the viewport and navigation divider */
 
+
+    /*
+        When implementing flex, including the decision to use flex over "box" or any other layout property, I used this article
+        [1] to improve my pre-existing knowledge and learn any new features flex-box uses.
+
+        -1- W3C (19/10/2017), 'CSS Flexible Box Layout Module Level 1' [online] Accessed 26/10/2018 <https://www.w3.org/TR/2017/CR-css-flexbox-1-20171019/> ---
+    */
+
     /*##Flex container settings##*/
     display: flex; /*Enables this to be a flex container and apply flex-item displaying to each child element*/
     flex-direction: row; /* Makes the articles form row's*/
