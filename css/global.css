@@ -273,7 +273,7 @@ nav ul li.nav-dropdown-item{
     padding-left: 40px;
     display: inline-block; /*The text and icon will be on the same line*/
 
-    vertical-align: center;
+    vertical-align: middle;
 
     /*padding-left: 0;*/
 
@@ -285,9 +285,6 @@ nav ul li.nav-dropdown-item{
 }
 nav:hover ul li.nav-dropdown-item{
     padding-left: 0;
-}
-nav ul li.nav-dropdown-item:hover{
-    /*padding-left: 0;*/
 }
 /*
 This code will add a arrow when the item is active/hovered over.
@@ -303,6 +300,7 @@ nav ul li.nav-dropdown-item::before{
     font-size: 36px;
 
     opacity: 0;
+    vertical-align: middle;
 
     color: #FFFFF8; /*font colour*/
 
