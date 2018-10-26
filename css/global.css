@@ -219,6 +219,10 @@ nav a{
     */
     padding-top: 10px;
     padding-bottom: 10px;
+
+    /*Make the type more visible */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /* All typography on the navigation bar, except from the header*/
 nav a, nav i {
@@ -261,14 +265,20 @@ display: inline-block;
 nav ul li .material-icons{
 font-size: 36px; /*Icon size*/
 /*color: inherit;*/
+
 }
 /*Dropdown menu, adds indentation to the dropdown menu*/
-/*a.nav-dropdown + ul > li{*/
-    /*!*padding-left: 40px; !*Change from pixels to something relative*!*!*/
-/*}*/
 nav ul li.nav-dropdown-item{
     padding-left: 40px;
-    display: inline-block;
+    display: inline-block; /*The text and icon will be on the same line*/
+
+    vertical-align: center;
+
+    /*-webkit-transition: padding-left 0.5s ease-in-out;*/
+    /*-moz-transition: padding-left 0.5s ease-in-out;*/
+    /*-ms-transition: padding-left 0.5s ease-in-out;*/
+    /*-o-transition: padding-left 0.5s ease-in-out;*/
+    /*transition: padding-left 0.5s ease-in-out;*/
 }
 nav ul li.nav-dropdown-item:hover{
     padding-left: 0;
@@ -278,24 +288,26 @@ This code will add a arrow when the item is active/hovered over.
 Uses the psudo class
 Information about the pseudo elements ':before' W3C (7-06-2016), 'CSS Pseudo-Elements Module Level 4'  [Online] <Accessed 20-10-2018> <https://www.w3.org/TR/css-pseudo-4/#selectordef-before>
 */
-nav ul li.nav-dropdown-item:before{
-    color: #2a2a2a; /*Background color*/
+nav ul li.nav-dropdown-item::before{
+    transition: right 0.3s ease-in-out;
 
-    /*padding-left: 40px; !*Change from pixels to something relative*!*/
-
-    -webkit-transition: color 0.3s ease-in-out;
-    -moz-transition: color 0.3s ease-in-out;
-    -ms-transition: color 0.3s ease-in-out;
-    -o-transition: color 0.3s ease-in-out;
-    transition: color 0.3s ease-in-out;
-}
-nav ul li .nav-dropdown-item:hover:before{
     /*This is an icon implemented by Material Icon*/
     content: "play_arrow";
     font-family: "Material Icons", none;
     font-size: 36px;
 
+    opacity: 0;
+
     color: #FFFFF8; /*font colour*/
+
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+nav ul li .nav-dropdown-item:hover::before{
+    opacity: 1;
 }
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
 /*nav ul li a + ul{*/
