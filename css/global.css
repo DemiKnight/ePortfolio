@@ -1,3 +1,18 @@
+/*
+
+## FLexbox research
+Flexbox is used repeatedly in the page to organise content. When I realised I was using it for organising all elements,
+I did some research into what the performance hit would be. I found the following article [1] exploring whether flexbox is
+considered performance intensive, by comparing it to the old "box" layout property.
+
+I then found an article [2] showing benchmark results, specifically that flexbox was "2.3x" faster than a box layout.
+According to the article [2], flex uses "2 passes", to calculate the position, on the Blink rendering engine (the one that is in Chromium).
+
+
+-1- CHRIS COYIER, CSS-Tricks,(25/05/2016)  'Does Flexbox Have a Performance Problem?' [online] Accessed 26/10/2018 <https://css-tricks.com/couple-takes-sticky-footer/>---
+-2- Paul Irish, Google,(2/07/2018) 'Flexbox layout isn't slow' [online] Accessed 26/10/2018 <https://developers.google.com/web/updates/2013/10/Flexbox-layout-isn-t-slow>---
+*/
+
 /* ## Fonts ## */
 @font-face {
     font-family: 'Material Icons';
@@ -121,16 +136,34 @@
 }
 /* Navigation */
 nav{
+    /*Makes the navigation float to the left of the viewport and make it relative to */
     float: left;
-    height: 100vh;
-    background: #2a2a2a;
+    height: 100vh;/*Makes the navigation bar full height*/
+
+    /*
+    When the navigation bar is closed, only take up 40px; the font size is 36px for the icons plus 4 padding.
+    TODO Change to rem, which changes the font size relative to the situation
+    */
+    width: 40px;
+    /*
+    Even when the navigation bar, don't go past 220px.
+    */
     max-width: 220px;
 
-
+    /*If the text exceeds the size of the navigation bar, hide it.
+     WIP
+     */
     overflow: hidden;
-    width: 40px;
-    white-space: nowrap;
 
+    background: #2a2a2a;
+
+
+    /*### Flex Settings ### Container*/
+    display: flex;
+    flex-direction: column;
+
+
+    /*Add a drop-shadow to create contrast between the navigation bar and main content  */
     box-shadow: inset -2px 0 10px #000;
     -moz-box-shadow: inset -2px 0 10px #000;
     -webkit-box-shadow: inset -2px 0 10px #000;
@@ -141,34 +174,10 @@ nav{
     -moz-transition: width 0.5s ease-in-out;
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
-
-    /**
-    TODO Animate box shadow
-    http://tobiasahlin.com/blog/how-to-animate-box-shadow/
-     */
-}
-nav .nav-header{
-    border-bottom: 5px solid #6e6e6e;
-    visibility: hidden;
-    display: none;
-}
-nav:hover .nav-header{
-    visibility: visible;
-    display: inherit;
-}
-/*todo Add smooth transition onto navigation bar header, ease in from the top*/
-nav .nav-header img{
-/*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
-border-radius: 50px;
-
-/*Makes the image centre when the navigation bar is extended*/
-display: block;
-margin-left: auto;
-margin-right: auto;
 }
 nav:hover, nav:active, nav:focus{
+    /*Extend the size of the navigation bar to show all the items, links and header.*/
     width: 15vw;
-    max-width: 220px;
 
     /*
     Used the following link when deciding whether to use the box shadow or drop shadow.
@@ -187,60 +196,92 @@ nav:hover, nav:active, nav:focus{
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
 }
-nav h1{
-    /*white-space: normal;*/
-    color: #ffffff;
+/*The navigation bar has a header, with my profile picture and name.
+This will only be visible when the menu is extended.
+*/
+nav .nav-header{
+    border-top: 5px solid #6e6e6e; /*Visually separate the header from the rest of the navigation bar.*/
+    padding-top: 10px;
+
+    /*### Flex Settings ### Child
+    When the Ul takes up the available space, this will stop it being pushed off the page.
+    It will thus be placed at the bottom of the page.
+    */
+    flex-shrink: 0;
+
+    /*This completely removes the header from the flow of the page, allowing only the icons to show.
+    This removes the massive gap visible at the top of the navbar otherwise
+    */
+    display: none;
+
+    /*Used to set the size of the font and the font*/
+    font-size: 1.5rem;
+    font-family: "Caviar Dreams Bold", sans-serif;
+
+    /*The Header within the nav-header*/
+    color: #FFFFF8;
     text-align: center;
+}
+nav:hover .nav-header{
+    /*Makes the header visible, once the navigation bar is extended.*/
+    display: block;
+}
+/*todo Add smooth transition onto navigation bar header, ease in from the top*/
+nav .nav-header img{
+    /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
+    border-radius: 50px;
+
+    /*Makes the image centre when the navigation bar is extended*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav .nav-header h1{
+    white-space: nowrap;
 }
 nav a{
     display: inherit;
     white-space: nowrap;
+    height: 100%;
+
+    /*
+    Increased surface area of button, making it easier for accessibility.
+    */
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    /*Make the type more visible */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /* All typography on the navigation bar, except from the header*/
 nav a, nav i {
     /* Aesthetic properties */
-    color: #ffffff;
-    font-size: 1.25rem;
+    color: #FFFFF8;
+    font-size: 1.25rem; /*Sets the size of the navigation text, override by later by 'nav ul li .material-icons ul li i' */
     font-family: "Caviar Dreams Bold", sans-serif;
     text-decoration: none;
 
     /*Positioning*/
-    height: 100%;
-    line-height: 100%;
+    height: 100%; /*Make the encapsulating tag take up the full height of the parent element*/
+    /*Align the icon and the text */
     vertical-align: middle;
 }
-
-nav h1{
-    /* Aesthetic properties */
-    font-size: 1.5rem;
-    font-family: "Caviar Dreams Bold", sans-serif;
-}
 nav ul{
-    margin-top: 0;
-    list-style: none; /* Aesthetic properties */
+    margin-top: 0; /*Remove browser default*/
+    list-style: none;
 
-    /*Positioning*/
+    /*### Flex Settings ### Child
+    Using flex to force the element "grow" to the height of the page, taking up any available space
+    */
+    flex: 1 0 auto;
+
+    /*Makes the text wrap before it can hit the shadow */
+    width: 95%;
+
+    /*Sets the padding to 2 for the list, from whatever the browser default is*/
     -webkit-padding-start: 2px;
     padding-left: 2px;
-    display: inline-block;
-}
-nav ul > li{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    white-space: nowrap;
-}
-nav ul > li span{
-    display: inline-block;
-}
-
-/* Selecting the large icons on the navigation bar*/
-nav ul li .material-icons, nav ul li .material-icons ul li i{
-    font-size: 36px;
-    color: inherit;
-}
-nav ul li > ul > li{
-    padding-left: 30px;
-    padding-bottom: 0;
 }
 nav ul li a:hover{
     color: #ED553B;
@@ -249,6 +290,51 @@ nav ul li a:hover{
     -ms-transition: color 0.3s ease;
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
+}
+nav ul > li span{
+/*Make the text and icon sit next to each other*/
+    display: inline-block;
+}
+
+/* Selecting the icons on the navigation bar*/
+nav ul li .material-icons{
+    font-size: 36px; /*Icon size*/
+}
+
+/*Dropdown menu, adds indentation to the dropdown menu*/
+nav ul li.nav-dropdown-item{
+    display: inline-block; /*The text and icon will be on the same line*/
+    /*Stop the text from deforming when the navigation bar is extending to the correct width*/
+    white-space: nowrap;
+}
+nav:hover ul li.nav-dropdown-item{
+    padding-left: 0;
+}
+/*
+This code will add a arrow when the item is active/hovered over.
+Uses the psudo class
+Information about the pseudo elements ':before' W3C (7-06-2016), 'CSS Pseudo-Elements Module Level 4'  [Online] <Accessed 20-10-2018> <https://www.w3.org/TR/css-pseudo-4/#selectordef-before>
+*/
+nav ul li.nav-dropdown-item::before{
+    /*This is an icon implemented by Material Icon*/
+    content: "play_arrow";
+    font-family: "Material Icons", none;
+    font-size: 36px;
+    /*Align arrow with the rest of the text*/
+    vertical-align: middle;
+
+    color: #FFFFF8; /*font colour*/
+
+    /*Used to control the fade of navigation arrow, from the invisible to visible state*/
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+nav ul li .nav-dropdown-item:hover::before{
+    opacity: 1;
 }
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
 /*nav ul li a + ul{*/
@@ -277,9 +363,6 @@ nav ul li a:hover{
     /*visibility: visible;*/
     /*opacity: 1;*/
 /*}*/
-
-
-
 
 /* Main Content page.*/
 #mainPage{
