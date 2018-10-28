@@ -303,9 +303,9 @@ nav ul li .material-icons{
 
 /*Dropdown menu, adds indentation to the dropdown menu*/
 nav ul li.nav-dropdown-item{
-    padding-left: 40px;
     display: inline-block; /*The text and icon will be on the same line*/
-
+    /*Stop the text from deforming when the navigation bar is extending to the correct width*/
+    white-space: nowrap;
 }
 nav:hover ul li.nav-dropdown-item{
     padding-left: 0;
@@ -320,9 +320,6 @@ nav ul li.nav-dropdown-item::before{
     content: "play_arrow";
     font-family: "Material Icons", none;
     font-size: 36px;
-
-    display: none;
-
     /*Align arrow with the rest of the text*/
     vertical-align: middle;
 
@@ -338,9 +335,6 @@ nav ul li.nav-dropdown-item::before{
 }
 nav ul li .nav-dropdown-item:hover::before{
     opacity: 1;
-}
-nav:hover ul li.nav-dropdown-item::before{
-    display: inherit;
 }
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
 /*nav ul li a + ul{*/
