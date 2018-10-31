@@ -465,6 +465,16 @@ TODO Will add if the img tag is used.
     text-align: center;
     border-bottom: #FFFFF8 solid 1px; /*A border which acts as a separator, making it easier to read.*/
 }
+#mainPage main table{
+    width: 100%;
+}
+#mainPage main tr td:first-child{
+    margin-right: 5px;
+}
+#mainPage main tr td:last-child{
+    text-align: right;
+}
+
 #mainPage footer {
     background: #0F1E32;
     padding: 5px;
