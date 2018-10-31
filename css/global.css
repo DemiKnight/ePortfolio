@@ -13,6 +13,17 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
 -2- Paul Irish, Google,(2/07/2018) 'Flexbox layout isn't slow' [online] Accessed 26/10/2018 <https://developers.google.com/web/updates/2013/10/Flexbox-layout-isn-t-slow>---
 */
 
+/*
+Potential optimisation for IE 10 running on tablets. In IE 10, on Windows 8+, when a windows is snapped to the side
+IE ignores the "IE10 ignores the meta viewport tag for any viewport smaller than 400 pixels" [1] which would make any
+responsive meta tags useless and cause layout issues.
+
+-1- Tim Kadlec (17/10/2012), 'IE10 Snap Mode and Responsive Design' [online] Accessed 31/10/18 <https://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/> ---
+ */
+@-ms-viewport{
+    width: device-width;
+}
+
 /* ## Fonts ## */
 @font-face {
     font-family: 'Material Icons';
