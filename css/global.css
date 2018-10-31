@@ -109,6 +109,11 @@
     font-feature-settings: 'liga';
 }
 
+/*Intended to remove the tag from the viewport if the website is being viewed on a mobile device*/
+.mobileDisabled{
+
+}
+
 /*
 Using common screen sizes to make sure each type can display all elements correctly.
 Media Genesis (2018), 'Popular Screen Resolutions: Designing for All' (31/8/2018) [online] [Accessed 18/10/2018] <https://mediag.com/news/popular-screen-resolutions-designing-for-all/>
@@ -116,23 +121,25 @@ Media Genesis (2018), 'Popular Screen Resolutions: Designing for All' (31/8/2018
 
 This resolution is designed for large tablets.
 */
-@media (min-width: 991px) and (max-width: 1024px)
+@media screen and (max-width: 1024px)
 {
 
 }
 /*
 This resolution is designed for medium tablets
 */
-@media (min-width: 767px) and (max-width: 990px)
+@media screen and (max-width: 990px)
 {
 
 }
 /*
 This resolution is designed for phones
 */
-@media (min-width: 766px)
+@media screen and (max-width: 766px)
 {
-
+    .mobileDisabled{
+        display: none;
+    }
 }
 
 
