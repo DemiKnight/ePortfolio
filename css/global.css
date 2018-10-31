@@ -396,7 +396,7 @@ TODO Will add if the img tag is used.
     color: #EB3E4A;
 }
 /*For all headers use this font, within the main page*/
-#mainPage h1, #mainPage h2, #mainPage h3 {
+#mainPage h1, #mainPage h2, #mainPage h3, #mainPage h4 {
     font-family: "Caviar Dreams Bold", sans-serif;
 }
 /*For all other text element, use the normal sans-serif font*/
@@ -465,29 +465,45 @@ TODO Will add if the img tag is used.
     text-align: center;
     border-bottom: #FFFFF8 solid 1px; /*A border which acts as a separator, making it easier to read.*/
 }
+
+/*Table Styling */
 #mainPage main table{
     width: 100%;
+    font-size: 1.25vw;
 }
+#mainPage main tr{
+    /*outline-bottom: #ED553B;*/
+    /*outline: solid 2px #ED553B;*/
+}
+/*Makes each row in a table more readable.*/
+#mainPage main tr:nth-child(odd){
+    background: rgba(0,0,0,0.5);
+}
+#mainPage main tr:nth-child(even) {
+    background: rgba(0,0,0,0.3);
+}
+
 #mainPage main tr td:first-child{
     margin-right: 5px;
 }
 #mainPage main tr td:last-child{
     text-align: right;
 }
-
+/*Footer Styling */
 #mainPage footer {
     background: #0F1E32;
     padding: 5px;
 }
 #mainPage footer h4{
     text-align: right;
+    margin: 5px;
 }
-#mainPagePortrait{
-    width: 25vw;
-    height: 25vh;
-    background-size: contain;
-    background: url("../resources/images/me.JPG") no-repeat center;
-}
+/*#mainPagePortrait{*/
+    /*width: 25vw;*/
+    /*height: 25vh;*/
+    /*background-size: contain;*/
+    /*background: url("../resources/images/me.JPG") no-repeat center;*/
+/*}*/
 
 body{
     margin: 0; /*Remove browser default*/
