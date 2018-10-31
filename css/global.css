@@ -18,9 +18,12 @@ Potential optimisation for IE 10 running on tablets. In IE 10, on Windows 8+, wh
 IE ignores the "IE10 ignores the meta viewport tag for any viewport smaller than 400 pixels" [1] which would make any
 responsive meta tags useless and cause layout issues.
 
+todo check whether this does anything
+
 -1- Tim Kadlec (17/10/2012), 'IE10 Snap Mode and Responsive Design' [online] Accessed 31/10/18 <https://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/> ---
  */
 @-ms-viewport{
+    /*noinspection CssInvalidPropertyValue*/
     width: device-width;
 }
 
