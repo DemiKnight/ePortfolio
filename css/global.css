@@ -19,7 +19,6 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
     font-style: normal;
     font-weight: 400;
     /*
-
     Fonts downloaded from Google's Material Design project, which creates and distributes open source icons for any kind
     of project. Files came as font files, in the formats: "ttf","eot","woff","woff2","ijmap" and "svg".
     -- Google (2018) 'Material Icons'. [online] Accessed 02/10/2018 <https://material.io/tools/icons/?style=sharp> --
@@ -81,7 +80,7 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
 }
 @font-face {
     font-family: 'Caviar Dreams Italic';
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
 
     src: url("fonts/CaviarDreams_Italic.eot");
@@ -93,7 +92,7 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
 }
 @font-face {
     font-family: 'Caviar Dreams BoldItalic';
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
 
     src: url("fonts/CaviarDreams_BoldItalic.eot");
@@ -107,7 +106,8 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
 /* Animations */
 
 .material-icons{
-    font-family: "Material Icons", sans-serif;
+    /*No default font due to it being an icon pack*/
+    font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
     font-size: 25px;
@@ -131,8 +131,10 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
 
     /* Internet Explorer */
     font-feature-settings: 'liga';
+}
 
-
+ h1, h2, h3 {
+    font-family: "Caviar Dreams Bold", sans-serif;
 }
 /* Navigation */
 nav{
@@ -188,13 +190,6 @@ nav:hover, nav:active, nav:focus{
     box-shadow: inset -4px 0 10px #000;
     -moz-box-shadow: inset -4px 0 10px #000;
     -webkit-box-shadow: inset -4px 0 10px #000;
-
-    /*Transition from extended to collapsed*/
-    transition: width 0.5s ease-in-out;
-    -webkit-transition: width 0.5s ease-in-out;
-    -moz-transition: width 0.5s ease-in-out;
-    -ms-transition: width 0.5s ease-in-out;
-    -o-transition: width 0.5s ease-in-out;
 }
 /*The navigation bar has a header, with my profile picture and name.
 This will only be visible when the menu is extended.
@@ -393,9 +388,6 @@ nav ul li .nav-dropdown-item:hover::before{
     padding: 0.6rem;
     background: #0F1E32;
     color: #EB3E4A;
-}
-#mainPage h1, #mainPage h2, #mainPage h3 {
-    font-family: "Caviar Dreams Bold";
 }
 #mainPage a, #mainPage p, #mainPage span{
     font-family: "Caviar Dreams";
