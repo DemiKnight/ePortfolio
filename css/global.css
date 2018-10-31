@@ -110,33 +110,27 @@
 }
 
 /*
-Properties that are applicable to all sizes
-*/
-@media all{
-
-}
-/*
 Using common screen sizes to make sure each type can display all elements correctly.
 Media Genesis (2018), 'Popular Screen Resolutions: Designing for All' (31/8/2018) [online] [Accessed 18/10/2018] <https://mediag.com/news/popular-screen-resolutions-designing-for-all/>
 
 
 This resolution is designed for large tablets.
 */
-@media screen and (min-width: 991px)
+@media (min-width: 991px) and (max-width: 1024px)
 {
 
 }
 /*
 This resolution is designed for medium tablets
 */
-@media screen and (min-width: 767px)
+@media (min-width: 767px) and (max-width: 990px)
 {
 
 }
 /*
 This resolution is designed for phones
 */
-@media screen and (min-width: 479px)
+@media (min-width: 766px)
 {
 
 }
