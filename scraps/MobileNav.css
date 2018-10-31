@@ -36,9 +36,9 @@
     /* Internet Explorer */
     font-feature-settings: 'liga';
 }
-nav i.material-icons + ul{
+nav a.dropdownThing > ul{
     display: none;
 }
-nav i.material-icons:active + ul, nav i.material-icons:focus + ul{
-    display: block;
+nav a.dropdownThing:active > ul, nav a.dropdownThing:focus > ul{
+    display: inherit;
 }
