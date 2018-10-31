@@ -259,7 +259,11 @@ nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
     text-align: center;
 }
 #mainPage footer {
-    background: antiquewhite;
+    background: #0F1E32;
+    padding: 5px;
+}
+#mainPage footer h4{
+    text-align: right;
 }
 body{
     margin: 0;
