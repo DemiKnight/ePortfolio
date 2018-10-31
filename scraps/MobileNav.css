@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../css/fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge */
+    src: local('Material Icons'),
+    local('MaterialIcons-regular'),
+    url("../css/fonts/MaterialIcons-Regular.eot?#iefix") format('embedded-opentype'), /*IE6-IE8 */
+    url("../css/fonts/MaterialIcons-Regular.woff2") format('woff2'), /*                 GC 43+, FF  39+, Op    31+, IE  NA, Ed  Na, Saf NA */
+    url("../css/fonts/MaterialIcons-Regular.woff")  format('woff'), /*                  GC  6+, FF 3.6+, Op 11.10+, IE  9+, Ed 12+, Saf 5.1+ */
+    url("../css/fonts/MaterialIcons-Regular.ttf")   format('truetype'); /*              GC  4+, FF 3.5+, Op  10.1+, IE 10+, Ed 13+, Saf 3.1+  */
+}
+.material-icons{
+    font-family: "Material Icons", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    -ms-word-wrap: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: center;
+    /* Webkit browser support */
+    -webkit-font-smoothing: antialiased;
+
+    /* Safari and Chrome support */
+    text-rendering: optimizeLegibility;
+
+    /* Firefox support */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Internet Explorer */
+    font-feature-settings: 'liga';
+}
+nav i.material-icons + ul{
+    display: none;
+}
+nav i.material-icons:active + ul, nav i.material-icons:focus + ul{
+    display: block;
+}
