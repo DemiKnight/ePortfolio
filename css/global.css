@@ -320,7 +320,19 @@ nav ul > li span{
 nav ul li .material-icons{
     font-size: 36px; /*Icon size*/
 }
+nav ul li .nav-dropdown > .material-icons:last-child
+{
+    padding-top: 0;
+    padding-bottom: 4px;
 
+}
+nav ul li a.nav-dropdown:focus > .material-icons:last-child,
+nav ul li a.nav-dropdown:active> .material-icons:last-child,
+nav ul li a.nav-dropdown:hover > .material-icons:last-child,
+nav ul li a.nav-dropdown:focus-within > .material-icons:last-child{
+    padding-top: 4px;
+    padding-bottom: 0;
+}
 /*Dropdown menu, adds indentation to the dropdown menu*/
 nav ul li.nav-dropdown-item{
     display: inline-block; /*The text and icon will be on the same line*/
