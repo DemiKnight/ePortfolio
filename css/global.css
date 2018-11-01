@@ -134,6 +134,15 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
 
 
 }
+
+body{
+    margin: 0; /*Remove browser default*/
+    width: 100vw;
+
+    /*Make every child element be responsive, specifically not wrapping. */
+    display: flex;
+}
+
 /* Navigation */
 nav{
     /*Makes the navigation float to the left of the viewport and make it relative to */
@@ -337,32 +346,32 @@ nav ul li .nav-dropdown-item:hover::before{
     opacity: 1;
 }
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
-/*nav ul li a + ul{*/
-    /*display: none;*/
-    /*visibility: collapse;*/
-    /*opacity: 0;*/
+/*nav ul li a + ul{
+    display: none;
+    visibility: collapse;
+    opacity: 0;
 
-    /*-webkit-transition: opacity 0.2s ease-in-out;*/
-    /*-moz-transition: opacity 0.2s ease-in-out;*/
-    /*-ms-transition: opacity 0.2s ease-in-out;*/
-    /*-o-transition: opacity 0.2s ease-in-out;*/
-    /*transition: opacity 0.2s ease-in-out;*/
-/*}*/
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
 
-/*!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!*/
-/*nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{*/
-    /*display: inherit;*/
-    /*!*transition: display 0.2s ease-in-out;*!*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
-/*}*/
+!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!
+nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
+    display: inherit;
+    !*transition: display 0.2s ease-in-out;*!
+    visibility: visible;
+    opacity: 1;
+}
 
-/*nav ul li > ul li:active, nav ul li > ul li:focus{*/
-    /*display: inherit;*/
-    /*!*transition: display 0.2s ease-in-out;*!*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
-/*}*/
+nav ul li > ul li:active, nav ul li > ul li:focus{
+    display: inherit;
+    !*transition: display 0.2s ease-in-out;*!
+visibility: visible;
+opacity: 1;
+}*/
 
 /* Main Content page.*/
 #mainPage{
@@ -431,6 +440,10 @@ TODO Will add if the img tag is used.
         -2- CanIUse 'CSS Flexible Box Layout Module' [online] Accessed 26/10/2018 <https://caniuse.com/#feat=flexbox> ---
     */
 
+    /*### Flex Settings ### Child
+Using flex to force the element "grow" to the height of the page, taking up any available space
+*/
+    flex: 1 0 auto;
     /*##Flex container settings##*/
     display: flex; /*Enables this to be a flex container and apply flex-item displaying to each child element*/
     flex-direction: row; /* Makes the articles form row's*/
@@ -493,6 +506,11 @@ TODO Will add if the img tag is used.
 #mainPage footer {
     background: #0F1E32;
     padding: 5px;
+    /*### Flex Settings ### Child
+When the Ul takes up the available space, this will stop it being pushed off the page.
+It will thus be placed at the bottom of the page.
+*/
+    flex-shrink: 0;
 }
 #mainPage footer h4{
     text-align: right;
@@ -505,10 +523,8 @@ TODO Will add if the img tag is used.
     /*background: url("../resources/images/me.JPG") no-repeat center;*/
 /*}*/
 
-body{
-    margin: 0; /*Remove browser default*/
-    width: 100vw;
-
-    /*Make every child element be responsive, specifically not wrapping. */
-    display: flex;
+@media screen and (max-width: 400px){
+    #mainPage{
+        background: darkgray    ;
+    }
 }
