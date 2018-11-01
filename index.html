@@ -9,42 +9,37 @@
 
     <body>
         <nav> <!-- Navigation  -->
-            <div class="nav-header">
-                <img src="resources/images/me.JPG" width="100" height="100" />
-                <h1>Alex Knight</h1>
-            </div>
-
             <ul> <!-- Main Unordered List START-->
                 <li> <!-- Home Page -->
                     <a href="index.html">
-                        <i class="material-icons nav-icon">home</i>
-                        <span>Home</span>
+                        <i class="material-icons nav-icon" aria-hidden="true">home</i>
+                        <span >Home</span>
                     </a>
                 </li>
 
                 <li> <!-- Employment Page-->
                     <a href="employment.html">
-                        <i class="material-icons nav-icon">work</i>
+                        <i class="material-icons nav-icon" aria-hidden="true">work</i>
                         <span>Employment</span>
                     </a>
                 </li>
 
                 <li> <!-- Education Page -->
                     <a href="#" class="nav-dropdown">
-                        <i class="material-icons nav-icon">school</i>
+                        <i class="material-icons nav-icon" aria-hidden="true">school</i>
                         <span>University</span>
-                        <i class="material-icons">keyboard_arrow_down</i>
+                        <!--<i class="material-icons">keyboard_arrow_down</i>-->
                     </a>
                     <ul> <!-- Education Page Dropdown Start -->
                         <li class="nav-dropdown-item">
                             <a href="unit1-2.html">
-                                <i class="material-icons">play_arrow</i>
+                                <!--<i class="material-icons">play_arrow</i>-->
                                 <span>Unit 1 & 2</span>
                             </a>
                         </li>
                         <li class="nav-dropdown-item">
                             <a href="unit3-4.html">
-                                <i class="material-icons">play_arrow</i>
+                                <!--<i class="material-icons">play_arrow</i>-->
                                 <span>Unit 3 & 4</span>
                             </a>
                         </li>
@@ -52,8 +47,8 @@
                 </li>
 
                 <li> <!-- Projects Page -->
-                    <a href="projects.html" class="nav-dropdown">
-                        <i class="material-icons nav-icon">code</i>
+                    <a href="#" class="nav-dropdown">
+                        <i class="material-icons nav-icon" aria-hidden="true">code</i>
                         <span>Projects</span>
                     </a>
                 </li>
@@ -67,11 +62,16 @@
 
                 <li> <!-- About This Site Page -->
                     <a href="about.html">
-                        <i class="material-icons nav-icon">web</i>
-                        <span>About This Site</span>
+                        <i class="material-icons nav-icon" aria-hidden="true">account_circle</i>
+                        <span>About Me</span>
                     </a>
                 </li>
             </ul> <!-- Main Unordered List -->
+
+            <div class="nav-header">
+                <img src="resources/images/me.JPG" width="100" height="100" />
+                <h1>Alex Knight</h1>
+            </div>
         </nav>
 
         <div id="mainPage">
@@ -99,18 +99,12 @@
                                 <td><a>Address</a></td>
                                 <td><a>31 Tynedale Close, SK5 7NA</a></td>
                             </tr>
+                            <tr>
+                                <td><a>Date Of Birth</a></td>
+                                <td><a>29/04/2000</a></td>
+                            </tr>
                         </table>
                     </section>
-                </article>
-                <article>
-                    <h2>Portrait</h2>
-                    <section id="mainPagePortrait" >
-
-                        <!-- TODO: Need to find a way to add an alt tag to the image -->
-                        <!--<img src="resources/images/me.JPG" alt="Picture of Alex James Knight" width="500" height="500"/>-->
-                    </section>
-                </article>
-                <article>
                     <h2>External Links</h2>
                     <section>
                         <table>
@@ -133,6 +127,26 @@
                     </section>
                 </article>
                 <article>
+                    <h2>Portrait</h2>
+                    <section>
+                        <img src="resources/images/me.JPG" alt="Picture of Alex James Knight" width="550" height="550"/>
+                    </section>
+                </article>
+                <article>
+                    <h2>About Me</h2>
+                    <section>
+                        <p>
+                            Someone who tries to put as much effort as I can into everything I do, in the hopes it will come in handy someday.
+                            I continually try and develop myself and my understanding, to become a better version of myself.
+                            I enjoy playing games, breaking games and then modding to fix those games.
+                        </p>
+                        <p>
+                            I chose Computer Science because of how much interest I have in the subject, given my academic, professional and personal projects.
+                            Additionally, my keenness to want to want to develop my skills and combine multiple areas of computing together to create something new.
+                        </p>
+                    </section>
+                </article>
+                <article>
                     <h2>Qualifications</h2>
                     <section>
                         <table>
@@ -142,7 +156,7 @@
                                 <th><a>Grade</a></th>
                             </tr>
                             <tr>
-                                <th colspan="3"><a>GCSE</a></th>
+                                <th colspan="3">GCSE</th>
                             </tr>
                             <tr>
                                 <td><a>AQA</a></td>
@@ -190,7 +204,7 @@
                                 <td><a>C</a></td>
                             </tr>
                             <tr>
-                                <th colspan="3"><a>A-Level</a></th>
+                                <th colspan="3">A-Level</th>
                             </tr>
                             <tr>
                                 <td><a>OCR</a></td>
@@ -211,6 +225,11 @@
                     </section>
                 </article>
             </main>
+            <footer>
+                <h4>Site produced by Alex Knight</h4>
+                <h4>Code Available on <a href="https://github.com/DemiKnight/ePortfolio">Github</a></h4>
+                <h4>Assignment produced for <a href="https://www2.mmu.ac.uk/">Manchester Metropolitan University</a></h4>
+            </footer>
         </div>
     </body>
 </html>
