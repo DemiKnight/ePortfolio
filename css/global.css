@@ -305,8 +305,9 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
-.nav-active{
-    color: #ED553B;
+.nav-active,nav ul li a:hover.nav-active{
+    /*color: #ED553B;*/
+    color: rgba(237,85,59,0.85);
     user-select: none;
     -webkit-user-select: none;
 }
