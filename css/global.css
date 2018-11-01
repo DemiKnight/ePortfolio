@@ -361,36 +361,37 @@ nav ul li .nav-dropdown-item:hover::before{
 
 /* Main Content page.*/
 #mainPage{
+    /*Set main page container to float next to the navigation bar*/
     float: left;
+    /*Set this to a flex container*/
     flex: 1;
+    /*Set the height to the maximum of the viewport,*/
     height: 100vh;
 
-    /*
-    Allows the content to scroll, if the content exceeds the height of the viewport.
-     */
-    overflow-x: hidden;
+    overflow-x: hidden;/*Allows the content to scroll, if the content exceeds the height of the viewport.*/
 
     background: #013859;
     color: #FFFFF8;
-}
-#mainPage section img{
-    /* By default, if an image is scaled then the browser will attempt to apply aliasing, however this can cause text
-      to become unreadable.*/
-    image-rendering: pixelated;
-    object-fit: cover;
 
-    min-height: 100%;
-    width: auto;
+    /*Improves readability of text*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+/*
+TODO Will add if the img tag is used.
+#mainPage section img{}*/
+
 #mainPage header{
-    font-family: "Caviar Dreams Bold", sans-serif;
-    margin: 0;
+    margin: 0; /*Remove browser default*/
     padding: 0.6rem;
+
+    font-family: "Caviar Dreams Bold", sans-serif; /*Set the font and default*/
     background: #0F1E32;
     color: #EB3E4A;
 }
 #mainPage a, #mainPage p, #mainPage span{
-    font-family: "Caviar Dreams";
+    font-family: "Caviar Dreams", sans-serif;
 }
 #mainPage a:any-link{
     color: #21BEDA;
@@ -405,51 +406,99 @@ nav ul li .nav-dropdown-item:hover::before{
 }
 
 #mainPage main{
-    padding: 10px;
+    padding: 10px; /*Stop articles from being directly next to the edges of the viewport and navigation divider */
 
-    display: flex;
+
+    /*
+        When implementing flex, including the decision to use flex over "box" or any other layout property, I used this article
+        [1] to improve my pre-existing knowledge and learn any new features flex-box uses.
+
+        [2] Was used to determine the amount of users who use browsers incapable of rendering flex-box.
+        This was found to be at most 5.25% and min of 4.2%. I believe this percentage of is small enough to contend with
+        any anyone using IE 6-9 will already be encountering issues on the web.
+
+        -1- W3C (19/10/2017), 'CSS Flexible Box Layout Module Level 1' [online] Accessed 26/10/2018 <https://www.w3.org/TR/2017/CR-css-flexbox-1-20171019/> ---
+        -2- CanIUse 'CSS Flexible Box Layout Module' [online] Accessed 26/10/2018 <https://caniuse.com/#feat=flexbox> ---
+    */
+
+    /*##Flex container settings##*/
+    display: flex; /*Enables this to be a flex container and apply flex-item displaying to each child element*/
     flex-direction: row; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
-    /*justify-content: center; !*Keeps the content inside from squashing up*!*/
-    align-items: flex-start;
-    align-content: flex-start;
+
+    /*##Flex items settings## child elements within the container*/
+    align-items: flex-start; /*Makes height adjust for the size of the content inside*/
 }
 #mainPage main article{
-    border: #FFFFF8 solid 2px;
-    border-radius: 10px;
     margin: 5px;
-
+    /*Stop the width of the each element from being outside of a certain range.*/
     min-width: 15%;
     max-width: 28%;
 
+    /*Added border to separate all content form the rest of the page, making it easy to see it is separate from the rest of the content on the page */
+    border: #FFFFF8 solid 2px;
+    border-radius: 10px;
+
+    /*Makes the article a container, with the internal sections flex items.
+    This may allow for sections within to resize based on the content. However this is currently WIP.
+    */
     display: flex;
-    flex-direction: column; /* Makes the articles form row's*/
-    flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
+    flex-direction: column; /* Makes the sections form columns within the article*/
+    flex-wrap: wrap; /*If the content can't fit in the section, it will wrap underneath */
     justify-content: flex-start; /*Keeps the content inside from squashing up*/
 }
 #mainPage main article section{
     padding: 5px;
 }
+/*For each section, have a header giving a title and context to the specific */
 #mainPage main article h2{
     text-align: center;
-    border-bottom: #FFFFF8 solid 1px;
+    border-bottom: #FFFFF8 solid 1px; /*A border which acts as a separator, making it easier to read.*/
 }
+
+/*Table Styling */
+#mainPage main table{
+    width: 100%;
+    font-size: 1.25vw;
+}
+#mainPage main tr{
+    /*outline-bottom: #ED553B;*/
+    /*outline: solid 2px #ED553B;*/
+}
+/*Makes each row in a table more readable.*/
+#mainPage main tr:nth-child(odd){
+    background: rgba(0,0,0,0.5);
+}
+#mainPage main tr:nth-child(even) {
+    background: rgba(0,0,0,0.3);
+}
+
+#mainPage main tr td:first-child{
+    margin-right: 5px;
+}
+#mainPage main tr td:last-child{
+    text-align: right;
+}
+/*Footer Styling */
 #mainPage footer {
     background: #0F1E32;
     padding: 5px;
 }
 #mainPage footer h4{
     text-align: right;
+    margin: 5px;
 }
-#mainPagePortrait{
-    width: 25vw;
-    height: 25vh;
-    background-size: contain;
-    background: url("../resources/images/me.JPG") no-repeat center;
-}
+/*#mainPagePortrait{*/
+    /*width: 25vw;*/
+    /*height: 25vh;*/
+    /*background-size: contain;*/
+    /*background: url("../resources/images/me.JPG") no-repeat center;*/
+/*}*/
 
 body{
-    margin: 0;
+    margin: 0; /*Remove browser default*/
     width: 100vw;
+
+    /*Make every child element be responsive, specifically not wrapping. */
     display: flex;
 }
