@@ -305,6 +305,11 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+.nav-active{
+    color: #ED553B;
+    user-select: none;
+    -webkit-user-select: none;
+}
 nav ul > li span{
 /*Make the text and icon sit next to each other*/
     display: inline-block;
