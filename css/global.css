@@ -450,13 +450,15 @@ Using flex to force the element "grow" to the height of the page, taking up any 
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
 
     /*##Flex items settings## child elements within the container*/
-    align-items: flex-start; /*Makes height adjust for the size of the content inside*/
+    align-items: center; /*Makes height adjust for the size of the content inside*/
+    justify-content: center;
 }
 #mainPage main article{
     margin: 5px;
     /*Stop the width of the each element from being outside of a certain range.*/
-    min-width: 15%;
-    max-width: 28%;
+    /*min-width: 15%;*/
+    width: 40%;
+    /*max-width: 28%;*/
 
     /*Added border to separate all content form the rest of the page, making it easy to see it is separate from the rest of the content on the page */
     border: #FFFFF8 solid 2px;
@@ -526,5 +528,9 @@ It will thus be placed at the bottom of the page.
 @media screen and (max-width: 400px){
     #mainPage{
         background: darkgray    ;
+    }
+    #mainPage main article{
+        /*flex*/
+        width: 80%;
     }
 }
