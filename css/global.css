@@ -37,14 +37,11 @@ todo check whether this does anything
     of project. Files came as font files, in the formats: "ttf","eot","woff","woff2","ijmap" and "svg".
     -- Google (2018) 'Material Icons'. [online] Accessed 02/10/2018 <https://material.io/tools/icons/?style=sharp> --
 
-    I have observed Google's recommended way
-    -- Google (2018) 'Material Icons Guide'. [online] Accessed 02/10/2018 <https://google.github.io/material-design-icons/> --
-
-    Browsers support a specific file font types, including all will allow the most compatibility for as many computers as possible.
+    Browsers support a specific file font types, including each type will allow the most compatibility for as many computers as possible.
+    To provide the browser with this choice
 
     -- Chris Coyier (2016), 'Using @font-face'. CSS-Tricks [online] Accessed 02-10-2018, <https://css-tricks.com/snippets/css/using-font-face/> --
     -- Alexis (2015) 'Browser Font support comparison'. [online] Accessed 02-10-2018 <https://socialcompare.com/en/comparison/browser-fonts-support-comparison> --
-     TODO Explain why Google/CSS tricks has helped and update the references to be better formatted.
 
      Legend:
         - Google Chrome     == GC
@@ -55,7 +52,7 @@ todo check whether this does anything
         - Safari            == Sf
 
      */
-    src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge */
+    src: url("fonts/MaterialIcons-Regular.eot"); /* For Internet Explorer 4+ & Edge; does not support local() */
     src: local('Material Icons'),
             local('MaterialIcons-regular'),
                 url("fonts/MaterialIcons-Regular.eot?#iefix") format('embedded-opentype'), /*IE6-IE8 */
@@ -116,9 +113,13 @@ todo check whether this does anything
     url("fonts/CaviarDreams_BoldItalic.woff")  format('woff'),
     url("fonts/CaviarDreams_BoldItalic.ttf") format('truetype');
 }
-/* ## Caviar Dreams ## */
-/* Animations */
+/*
+    I have observed Google's recommended way of implementing their icon pack, and applied the recommended code below.
+    To summaries the code below, it resets any inherit values being applied to the icon upon implementation, to ones that will make the icon render properly.
+     When I/the developer wants to change a property, overriding will be easy due to CSS hierarchy/priority.
 
+    -- Google (2018) 'Material Icons Guide'. [online] Accessed 02/10/2018 <https://google.github.io/material-design-icons/> --
+*/
 .material-icons{
     /*No default font due to it being an icon pack*/
     font-family: "Material Icons";
@@ -153,7 +154,6 @@ todo check whether this does anything
 
 body{
     margin: 0; /*Remove browser default*/
-    width: 100vw;
 
     /*Make every child element be responsive, specifically not wrapping. */
     display: flex;
@@ -244,13 +244,13 @@ nav:hover .nav-header{
     /*Makes the header visible, once the navigation bar is extended.*/
     display: block;
 }
-/*todo Add smooth transition onto navigation bar header, ease in from the top*/
 nav .nav-header img{
     /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
     border-radius: 50px;
 
     /*Makes the image centre when the navigation bar is extended*/
     display: block;
+    /*Center the image*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -280,8 +280,6 @@ nav a, nav i {
     font-family: "Caviar Dreams Bold", sans-serif;
     text-decoration: none;
 
-    /*Positioning*/
-    height: 100%; /*Make the encapsulating tag take up the full height of the parent element*/
     /*Align the icon and the text */
     vertical-align: middle;
 }
@@ -309,11 +307,10 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+/*When the .nav-active is applied, intended for use on the nav item that relates to the same page, dim the colour. */
 .nav-active,nav ul li a:hover.nav-active{
-    /*color: #ED553B;*/
+    /*rgba(red,green,blue,alpha) */
     color: rgba(237,85,59,0.85);
-    user-select: none;
-    -webkit-user-select: none;
 }
 nav ul > li span{
 /*Make the text and icon sit next to each other*/
@@ -324,19 +321,6 @@ nav ul > li span{
 nav ul li .material-icons{
     font-size: 36px; /*Icon size*/
 }
-/*nav ul li .nav-dropdown > .material-icons:last-child
-{
-    padding-top: 0;
-    padding-bottom: 4px;
-
-}
-nav ul li a.nav-dropdown:focus > .material-icons:last-child,
-nav ul li a.nav-dropdown:active> .material-icons:last-child,
-nav ul li a.nav-dropdown:hover > .material-icons:last-child,
-nav ul li a.nav-dropdown:focus-within > .material-icons:last-child{
-    padding-top: 4px;
-    padding-bottom: 0;
-}*/
 /*Dropdown menu, adds indentation to the dropdown menu*/
 nav ul li.nav-dropdown-item{
     display: inline-block; /*The text and icon will be on the same line*/
@@ -355,9 +339,11 @@ nav ul li.nav-dropdown-item:hover > a{
     padding-left: 5px;
 }
 /*
-This code will add a arrow when the item is active/hovered over.
-Uses the psudo class
-Information about the pseudo elements ':before' W3C (7-06-2016), 'CSS Pseudo-Elements Module Level 4'  [Online] <Accessed 20-10-2018> <https://www.w3.org/TR/css-pseudo-4/#selectordef-before>
+    This code will add a arrow when the item is active/hovered over.
+    Uses the psudo class
+    Information about the pseudo elements ':before' [1]. Places anything in the "content"
+
+    -1- W3C (7-06-2016), 'CSS Pseudo-Elements Module Level 4'  [Online] <Accessed 20-10-2018> <https://www.w3.org/TR/css-pseudo-4/#selectordef-before> ---
 */
 nav ul li.nav-dropdown-item::before{
     /*This is an icon implemented by Material Icon*/
@@ -388,34 +374,6 @@ nav ul li .nav-dropdown-item:hover::before{
     -o-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
 }
-/*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
-/*nav ul li a + ul{
-    display: none;
-    visibility: collapse;
-    opacity: 0;
-
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    -ms-transition: opacity 0.2s ease-in-out;
-    -o-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
-}
-
-!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!
-nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
-    display: inherit;
-    !*transition: display 0.2s ease-in-out;*!
-    visibility: visible;
-    opacity: 1;
-}
-
-nav ul li > ul li:active, nav ul li > ul li:focus{
-    display: inherit;
-    !*transition: display 0.2s ease-in-out;*!
-visibility: visible;
-opacity: 1;
-}*/
-
 /* Main Content page.*/
 #mainPage{
     /*Set main page container to float next to the navigation bar*/
@@ -452,8 +410,11 @@ opacity: 1;
     color: #21BEDA;
     text-decoration: none;
 }
-/*This will add the 'open in new' icon to any external link,
- https://material.io/tools/icons/?icon=open_in_new&style=baseline
+/*
+This will add the 'open in new' icon [1] to any external link. Any a element with the attribute 'href' containing the substrings 'http' & 'https'
+will have the the icon added to the end, as a suffix.
+
+ -1- https://material.io/tools/icons/?icon=open_in_new&style=baseline --
  */
 #mainPage a[href^="https"]::after, #mainPage a[href^="http"]::after{
     font-family: "Material Icons", sans-serif;
@@ -492,9 +453,7 @@ Using flex to force the element "grow" to the height of the page, taking up any 
 #mainPage main article{
     margin: 5px;
     /*Stop the width of the each element from being outside of a certain range.*/
-    /*min-width: 15%;*/
     width: 40%;
-    /*max-width: 28%;*/
 
     /*Added border to separate all content form the rest of the page, making it easy to see it is separate from the rest of the content on the page */
     border: #FFFFF8 solid 2px;
@@ -529,10 +488,6 @@ Using flex to force the element "grow" to the height of the page, taking up any 
     font-size: 1.5em;
     font-family: "Caviar Dreams", sans-serif;
 }
-#mainPage main tr{
-    /*outline-bottom: #ED553B;*/
-    /*outline: solid 2px #ED553B;*/
-}
 /*Makes each row in a table more readable.*/
 #mainPage main tr:nth-child(odd){
     background: rgba(0,0,0,0.5);
@@ -540,37 +495,28 @@ Using flex to force the element "grow" to the height of the page, taking up any 
 #mainPage main tr:nth-child(even) {
     background: rgba(0,0,0,0.3);
 }
-
-#mainPage main tr td:first-child{
-    margin-right: 5px;
-}
-#mainPage main tr td:last-child{
-    text-align: right;
-}
 /*Footer Styling */
 #mainPage footer {
     background: #0F1E32;
     padding: 5px;
-    /*### Flex Settings ### Child
-When the Ul takes up the available space, this will stop it being pushed off the page.
-It will thus be placed at the bottom of the page.
-*/
-    flex-shrink: 0;
 }
 #mainPage footer h4{
     text-align: right;
     margin: 5px;
 }
+/*
+This media query will be applied on mobile devices,
 
+I haven't used any more media queries due to them not being needed, I have used flex and relative sizing to make the
+website naturally responsive.
+*/
 @media screen and (max-width: 470px){
-    #mainPage{
-        background: darkgray;
-    }
     #mainPage main{
+        /*Due to it being a single column layout, no need for a padding to be applied, only reducing the usable screen space.*/
         padding: 0;
     }
+    /*Increases the width used for each section*/
     #mainPage main article{
-        /*flex*/
         width: 90%;
         margin-left: 0;
         margin-right: 0;
