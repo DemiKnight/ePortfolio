@@ -1,10 +1,38 @@
+/*
+
+## FLexbox research
+Flexbox is used repeatedly in the page to organise content. When I realised I was using it for organising all elements,
+I did some research into what the performance hit would be. I found the following article [1] exploring whether flexbox is
+considered performance intensive, by comparing it to the old "box" layout property.
+
+I then found an article [2] showing benchmark results, specifically that flexbox was "2.3x" faster than a box layout.
+According to the article [2], flex uses "2 passes", to calculate the position, on the Blink rendering engine (the one that is in Chromium).
+
+
+-1- CHRIS COYIER, CSS-Tricks,(25/05/2016)  'Does Flexbox Have a Performance Problem?' [online] Accessed 26/10/2018 <https://css-tricks.com/couple-takes-sticky-footer/>---
+-2- Paul Irish, Google,(2/07/2018) 'Flexbox layout isn't slow' [online] Accessed 26/10/2018 <https://developers.google.com/web/updates/2013/10/Flexbox-layout-isn-t-slow>---
+*/
+
+/*
+Potential optimisation for IE 10 running on tablets. In IE 10, on Windows 8+, when a windows is snapped to the side
+IE ignores the "IE10 ignores the meta viewport tag for any viewport smaller than 400 pixels" [1] which would make any
+responsive meta tags useless and cause layout issues.
+
+todo check whether this does anything
+
+-1- Tim Kadlec (17/10/2012), 'IE10 Snap Mode and Responsive Design' [online] Accessed 31/10/18 <https://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/> ---
+ */
+@-ms-viewport{
+    /*noinspection CssInvalidPropertyValue*/
+    width: device-width;
+}
+
 /* ## Fonts ## */
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
     /*
-
     Fonts downloaded from Google's Material Design project, which creates and distributes open source icons for any kind
     of project. Files came as font files, in the formats: "ttf","eot","woff","woff2","ijmap" and "svg".
     -- Google (2018) 'Material Icons'. [online] Accessed 02/10/2018 <https://material.io/tools/icons/?style=sharp> --
@@ -66,7 +94,7 @@
 }
 @font-face {
     font-family: 'Caviar Dreams Italic';
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
 
     src: url("fonts/CaviarDreams_Italic.eot");
@@ -78,7 +106,7 @@
 }
 @font-face {
     font-family: 'Caviar Dreams BoldItalic';
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
 
     src: url("fonts/CaviarDreams_BoldItalic.eot");
@@ -92,7 +120,8 @@
 /* Animations */
 
 .material-icons{
-    font-family: "Material Icons", sans-serif;
+    /*No default font due to it being an icon pack*/
+    font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
     font-size: 25px;
@@ -116,21 +145,50 @@
 
     /* Internet Explorer */
     font-feature-settings: 'liga';
-
-
 }
+
+ h1, h2, h3 {
+    font-family: "Caviar Dreams Bold", sans-serif;
+}
+
+body{
+    margin: 0; /*Remove browser default*/
+    width: 100vw;
+
+    /*Make every child element be responsive, specifically not wrapping. */
+    display: flex;
+}
+
 /* Navigation */
 nav{
+    /*Makes the navigation float to the left of the viewport and make it relative to */
     float: left;
-    height: 100vh;
-    background: #2a2a2a;
+    height: 100vh;/*Makes the navigation bar full height*/
+
+    /*
+    When the navigation bar is closed, only take up 40px; the font size is 36px for the icons plus 4 padding.
+    TODO Change to rem, which changes the font size relative to the situation
+    */
+    width: 40px;
+    /*
+    Even when the navigation bar, don't go past 220px.
+    */
     max-width: 220px;
 
-
+    /*If the text exceeds the size of the navigation bar, hide it.
+     WIP
+     */
     overflow: hidden;
-    width: 40px;
-    white-space: nowrap;
 
+    background: #2a2a2a;
+
+
+    /*### Flex Settings ### Container*/
+    display: flex;
+    flex-direction: column;
+
+
+    /*Add a drop-shadow to create contrast between the navigation bar and main content  */
     box-shadow: inset -2px 0 10px #000;
     -moz-box-shadow: inset -2px 0 10px #000;
     -webkit-box-shadow: inset -2px 0 10px #000;
@@ -141,34 +199,10 @@ nav{
     -moz-transition: width 0.5s ease-in-out;
     -ms-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
-
-    /**
-    TODO Animate box shadow
-    http://tobiasahlin.com/blog/how-to-animate-box-shadow/
-     */
-}
-nav .nav-header{
-    border-bottom: 5px solid #6e6e6e;
-    visibility: hidden;
-    display: none;
-}
-nav:hover .nav-header{
-    visibility: visible;
-    display: inherit;
-}
-/*todo Add smooth transition onto navigation bar header, ease in from the top*/
-nav .nav-header img{
-/*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
-border-radius: 50px;
-
-/*Makes the image centre when the navigation bar is extended*/
-display: block;
-margin-left: auto;
-margin-right: auto;
 }
 nav:hover, nav:active, nav:focus{
+    /*Extend the size of the navigation bar to show all the items, links and header.*/
     width: 15vw;
-    max-width: 220px;
 
     /*
     Used the following link when deciding whether to use the box shadow or drop shadow.
@@ -179,68 +213,93 @@ nav:hover, nav:active, nav:focus{
     box-shadow: inset -4px 0 10px #000;
     -moz-box-shadow: inset -4px 0 10px #000;
     -webkit-box-shadow: inset -4px 0 10px #000;
-
-    /*Transition from extended to collapsed*/
-    transition: width 0.5s ease-in-out;
-    -webkit-transition: width 0.5s ease-in-out;
-    -moz-transition: width 0.5s ease-in-out;
-    -ms-transition: width 0.5s ease-in-out;
-    -o-transition: width 0.5s ease-in-out;
 }
-nav h1{
-    /*white-space: normal;*/
-    color: #ffffff;
+/*The navigation bar has a header, with my profile picture and name.
+This will only be visible when the menu is extended.
+*/
+nav .nav-header{
+    border-top: 5px solid #6e6e6e; /*Visually separate the header from the rest of the navigation bar.*/
+    padding-top: 10px;
+
+    /*### Flex Settings ### Child
+    When the Ul takes up the available space, this will stop it being pushed off the page.
+    It will thus be placed at the bottom of the page.
+    */
+    flex-shrink: 0;
+
+    /*This completely removes the header from the flow of the page, allowing only the icons to show.
+    This removes the massive gap visible at the top of the navbar otherwise
+    */
+    display: none;
+
+    /*Used to set the size of the font and the font*/
+    font-size: 1.5rem;
+    font-family: "Caviar Dreams Bold", sans-serif;
+
+    /*The Header within the nav-header*/
+    color: #FFFFF8;
     text-align: center;
+}
+nav:hover .nav-header{
+    /*Makes the header visible, once the navigation bar is extended.*/
+    display: block;
+}
+/*todo Add smooth transition onto navigation bar header, ease in from the top*/
+nav .nav-header img{
+    /*Due to the image being scaled to 100x100, a radius of 50 will cause it to be round*/
+    border-radius: 50px;
+
+    /*Makes the image centre when the navigation bar is extended*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav .nav-header h1{
+    white-space: nowrap;
 }
 nav a{
     display: inherit;
     white-space: nowrap;
+    height: 100%;
+
+    /*
+    Increased surface area of button, making it easier for accessibility.
+    */
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    /*Make the type more visible */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /* All typography on the navigation bar, except from the header*/
 nav a, nav i {
     /* Aesthetic properties */
-    color: #ffffff;
-    font-size: 1.25rem;
+    color: #FFFFF8;
+    font-size: 1.25rem; /*Sets the size of the navigation text, override by later by 'nav ul li .material-icons ul li i' */
     font-family: "Caviar Dreams Bold", sans-serif;
     text-decoration: none;
 
     /*Positioning*/
-    height: 100%;
-    line-height: 100%;
+    height: 100%; /*Make the encapsulating tag take up the full height of the parent element*/
+    /*Align the icon and the text */
     vertical-align: middle;
 }
-
-nav h1{
-    /* Aesthetic properties */
-    font-size: 1.5rem;
-    font-family: "Caviar Dreams Bold", sans-serif;
-}
 nav ul{
-    margin-top: 0;
-    list-style: none; /* Aesthetic properties */
+    margin-top: 0; /*Remove browser default*/
+    list-style: none;
 
-    /*Positioning*/
+    /*### Flex Settings ### Child
+    Using flex to force the element "grow" to the height of the page, taking up any available space
+    */
+    flex: 1 0 auto;
+
+    /*Makes the text wrap before it can hit the shadow */
+    width: 95%;
+
+    /*Sets the padding to 2 for the list, from whatever the browser default is*/
     -webkit-padding-start: 2px;
     padding-left: 2px;
-    display: inline-block;
-}
-nav ul > li{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    white-space: nowrap;
-}
-nav ul > li span{
-    display: inline-block;
-}
-
-/* Selecting the large icons on the navigation bar*/
-nav ul li .material-icons, nav ul li .material-icons ul li i{
-    font-size: 36px;
-    color: inherit;
-}
-nav ul li > ul > li{
-    padding-left: 30px;
-    padding-bottom: 0;
 }
 nav ul li a:hover{
     color: #ED553B;
@@ -250,122 +309,276 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+.nav-active,nav ul li a:hover.nav-active{
+    /*color: #ED553B;*/
+    color: rgba(237,85,59,0.85);
+    user-select: none;
+    -webkit-user-select: none;
+}
+nav ul > li span{
+/*Make the text and icon sit next to each other*/
+    display: inline-block;
+}
+
+/* Selecting the icons on the navigation bar*/
+nav ul li .material-icons{
+    font-size: 36px; /*Icon size*/
+}
+/*nav ul li .nav-dropdown > .material-icons:last-child
+{
+    padding-top: 0;
+    padding-bottom: 4px;
+
+}
+nav ul li a.nav-dropdown:focus > .material-icons:last-child,
+nav ul li a.nav-dropdown:active> .material-icons:last-child,
+nav ul li a.nav-dropdown:hover > .material-icons:last-child,
+nav ul li a.nav-dropdown:focus-within > .material-icons:last-child{
+    padding-top: 4px;
+    padding-bottom: 0;
+}*/
+/*Dropdown menu, adds indentation to the dropdown menu*/
+nav ul li.nav-dropdown-item{
+    display: inline-block; /*The text and icon will be on the same line*/
+    /*Stop the text from deforming when the navigation bar is extending to the correct width*/
+    white-space: nowrap;
+    padding-left: 0;
+}
+nav ul li.nav-dropdown-item > a{
+    -webkit-transition: padding-left 0.2s ease-in-out;
+    -moz-transition: padding-left 0.2s ease-in-out;
+    -ms-transition: padding-left 0.2s ease-in-out;
+    -o-transition: padding-left 0.2s ease-in-out;
+    transition: padding-left 0.2s ease-in-out;
+}
+nav ul li.nav-dropdown-item:hover > a{
+    padding-left: 5px;
+}
+/*
+This code will add a arrow when the item is active/hovered over.
+Uses the psudo class
+Information about the pseudo elements ':before' W3C (7-06-2016), 'CSS Pseudo-Elements Module Level 4'  [Online] <Accessed 20-10-2018> <https://www.w3.org/TR/css-pseudo-4/#selectordef-before>
+*/
+nav ul li.nav-dropdown-item::before{
+    /*This is an icon implemented by Material Icon*/
+    content: "play_arrow";
+    font-family: "Material Icons", sans-serif;
+    font-size: 36px;
+    /*Align arrow with the rest of the text*/
+    vertical-align: middle;
+
+    color: #FFFFF8; /*font colour*/
+
+    /*Used to control the fade of navigation arrow, from the invisible to visible state*/
+    opacity: 0;
+
+
+    -webkit-transition: padding-left 0.2s ease-in-out;
+    -moz-transition: padding-left 0.2s ease-in-out;
+    -ms-transition: padding-left 0.2s ease-in-out;
+    -o-transition: padding-left 0.2s ease-in-out;
+    transition: padding-left 0.2s ease-in-out;
+}
+nav ul li .nav-dropdown-item:hover::before{
+    opacity: 1;
+    padding-left: 7px;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
-/*nav ul li a + ul{*/
-    /*display: none;*/
-    /*visibility: collapse;*/
-    /*opacity: 0;*/
+/*nav ul li a + ul{
+    display: none;
+    visibility: collapse;
+    opacity: 0;
 
-    /*-webkit-transition: opacity 0.2s ease-in-out;*/
-    /*-moz-transition: opacity 0.2s ease-in-out;*/
-    /*-ms-transition: opacity 0.2s ease-in-out;*/
-    /*-o-transition: opacity 0.2s ease-in-out;*/
-    /*transition: opacity 0.2s ease-in-out;*/
-/*}*/
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
 
-/*!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!*/
-/*nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{*/
-    /*display: inherit;*/
-    /*!*transition: display 0.2s ease-in-out;*!*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
-/*}*/
+!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!
+nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
+    display: inherit;
+    !*transition: display 0.2s ease-in-out;*!
+    visibility: visible;
+    opacity: 1;
+}
 
-/*nav ul li > ul li:active, nav ul li > ul li:focus{*/
-    /*display: inherit;*/
-    /*!*transition: display 0.2s ease-in-out;*!*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
-/*}*/
-
-
-
+nav ul li > ul li:active, nav ul li > ul li:focus{
+    display: inherit;
+    !*transition: display 0.2s ease-in-out;*!
+visibility: visible;
+opacity: 1;
+}*/
 
 /* Main Content page.*/
 #mainPage{
+    /*Set main page container to float next to the navigation bar*/
     float: left;
+    /*Set this to a flex container*/
     flex: 1;
+    /*Set the height to the maximum of the viewport,*/
     height: 100vh;
 
-    /*
-    Allows the content to scroll, if the content exceeds the height of the viewport.
-     */
-    overflow-x: hidden;
+    overflow-x: hidden;/*Allows the content to scroll, if the content exceeds the height of the viewport.*/
 
     background: #013859;
     color: #FFFFF8;
-}
-#mainPage section img{
-    /* By default, if an image is scaled then the browser will attempt to apply aliasing, however this can cause text
-      to become unreadable.*/
-    image-rendering: pixelated;
-    object-fit: cover;
 
-    min-height: 100%;
-    width: auto;
+    /*Improves readability of text*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 #mainPage header{
-    font-family: "Caviar Dreams Bold", sans-serif;
-    margin: 0;
+    margin: 0; /*Remove browser default*/
     padding: 0.6rem;
+
+    font-family: "Caviar Dreams Bold", sans-serif; /*Set the font and default*/
     background: #0F1E32;
     color: #EB3E4A;
 }
-#mainPage h1, #mainPage h2, #mainPage h3 {
-    font-family: "Caviar Dreams Bold";
-}
 #mainPage a, #mainPage p, #mainPage span{
-    font-family: "Caviar Dreams";
+    font-family: "Caviar Dreams", sans-serif;
+    text-align: left;
+    font-size: 1.5rem;
 }
-#mainPage a:link, #mainPage a:visited{
+#mainPage a:any-link{
     color: #21BEDA;
     text-decoration: none;
 }
+/*This will add the 'open in new' icon to any external link,
+ https://material.io/tools/icons/?icon=open_in_new&style=baseline
+ */
+#mainPage a[href^="https"]::after, #mainPage a[href^="http"]::after{
+    font-family: "Material Icons", sans-serif;
+    content: ' \e89e';
+}
 
 #mainPage main{
-    padding: 10px;
+    padding: 10px; /*Stop articles from being directly next to the edges of the viewport and navigation divider */
 
-    display: flex;
+
+    /*
+        When implementing flex, including the decision to use flex over "box" or any other layout property, I used this article
+        [1] to improve my pre-existing knowledge and learn any new features flex-box uses.
+
+        [2] Was used to determine the amount of users who use browsers incapable of rendering flex-box.
+        This was found to be at most 5.25% and min of 4.2%. I believe this percentage of is small enough to contend with
+        any anyone using IE 6-9 will already be encountering issues on the web.
+
+        -1- W3C (19/10/2017), 'CSS Flexible Box Layout Module Level 1' [online] Accessed 26/10/2018 <https://www.w3.org/TR/2017/CR-css-flexbox-1-20171019/> ---
+        -2- CanIUse 'CSS Flexible Box Layout Module' [online] Accessed 26/10/2018 <https://caniuse.com/#feat=flexbox> ---
+    */
+
+    /*### Flex Settings ### Child
+Using flex to force the element "grow" to the height of the page, taking up any available space
+*/
+    flex: 1 0 auto;
+    /*##Flex container settings##*/
+    display: flex; /*Enables this to be a flex container and apply flex-item displaying to each child element*/
     flex-direction: row; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
-    /*justify-content: center; !*Keeps the content inside from squashing up*!*/
-    align-items: flex-start;
-    align-content: flex-start;
+
+    /*##Flex items settings## child elements within the container*/
+    align-items: center; /*Makes height adjust for the size of the content inside*/
+    justify-content: center;
 }
 #mainPage main article{
+    margin: 5px;
+    /*Stop the width of the each element from being outside of a certain range.*/
+    /*min-width: 15%;*/
+    width: 40%;
+    /*max-width: 28%;*/
+
+    /*Added border to separate all content form the rest of the page, making it easy to see it is separate from the rest of the content on the page */
     border: #FFFFF8 solid 2px;
     border-radius: 10px;
-    margin: 5px;
 
-    min-width: 15%;
-    max-width: 28%;
-
+    /*Makes the article a container, with the internal sections flex items.
+    This may allow for sections within to resize based on the content. However this is currently WIP.
+    */
     display: flex;
-    flex-direction: column; /* Makes the articles form row's*/
-    flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
+    flex-direction: column; /* Makes the sections form columns within the article*/
+    flex-wrap: wrap; /*If the content can't fit in the section, it will wrap underneath */
     justify-content: flex-start; /*Keeps the content inside from squashing up*/
 }
 #mainPage main article section{
     padding: 5px;
+    text-align: center;
+    vertical-align: middle;
 }
+#mainPage main article section img{
+    max-width:100%;
+    max-height:100%;
+}
+/*For each section, have a header giving a title and context to the specific */
 #mainPage main article h2{
     text-align: center;
-    border-bottom: #FFFFF8 solid 1px;
-}
-#mainPage footer {
-    background: antiquewhite;
-}
-#mainPagePortrait{
-    width: 25vw;
-    height: 25vh;
-    background-image: url("../resources/images/me.JPG");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    border-bottom: #FFFFF8 solid 1px; /*A border which acts as a separator, making it easier to read.*/
 }
 
-body{
-    margin: 0;
-    width: 100vw;
-    display: flex;
+/*Table Styling */
+#mainPage main table, #mainPage main table a{
+    width: 100%;
+    font-size: 1.5em;
+    font-family: "Caviar Dreams", sans-serif;
+}
+#mainPage main tr{
+    /*outline-bottom: #ED553B;*/
+    /*outline: solid 2px #ED553B;*/
+}
+/*Makes each row in a table more readable.*/
+#mainPage main tr:nth-child(odd){
+    background: rgba(0,0,0,0.5);
+}
+#mainPage main tr:nth-child(even) {
+    background: rgba(0,0,0,0.3);
+}
+
+#mainPage main tr td:first-child{
+    margin-right: 5px;
+}
+#mainPage main tr td:last-child{
+    text-align: right;
+}
+/*Footer Styling */
+#mainPage footer {
+    background: #0F1E32;
+    padding: 5px;
+    /*### Flex Settings ### Child
+When the Ul takes up the available space, this will stop it being pushed off the page.
+It will thus be placed at the bottom of the page.
+*/
+    flex-shrink: 0;
+}
+#mainPage footer h4{
+    text-align: right;
+    margin: 5px;
+}
+
+@media screen and (max-width: 470px){
+    #mainPage{
+        background: darkgray;
+    }
+    #mainPage main{
+        padding: 0;
+    }
+    #mainPage main article{
+        /*flex*/
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #mainPage main table{
+        font-size: 1em;
+    }
+    #mainPage footer h4, #mainPage footer h4 > a{
+        font-size: 0.75rem;
+    }
 }
