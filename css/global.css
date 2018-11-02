@@ -474,6 +474,12 @@ Using flex to force the element "grow" to the height of the page, taking up any 
 }
 #mainPage main article section{
     padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+#mainPage main article section img{
+    max-width:100%;
+    max-height:100%;
 }
 /*For each section, have a header giving a title and context to the specific */
 #mainPage main article h2{
@@ -525,12 +531,17 @@ It will thus be placed at the bottom of the page.
     /*background: url("../resources/images/me.JPG") no-repeat center;*/
 /*}*/
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 470px){
     #mainPage{
         background: darkgray    ;
     }
+    #mainPage main{
+        padding: 0;
+    }
     #mainPage main article{
         /*flex*/
-        width: 80%;
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
     }
 }

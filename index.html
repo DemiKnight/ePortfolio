@@ -130,6 +130,14 @@
                 <article>
                     <h2>Portrait</h2>
                     <section>
+                        <picture >
+                            <!-- Picture for mobile -->
+                            <!--<source media="(max-width: 649px)" srcset="resources/images/min/me-mobile.jpg">-->
+                            <!-- Picture for tablets and lower -->
+                            <source media="(min-width: 750px)" srcset="resources/images/min/me.JPG" >
+                            <!-- Picture for desktops -->
+                            <img src="resources/images/me.JPG" alt="Picture of Alex James Knight">
+                        </picture>
                         <!--<img src="resources/images/me.JPG" alt="Picture of Alex James Knight" width="550" height="550"/>-->
                     </section>
                 </article>
@@ -225,7 +233,7 @@
                         </table>
                     </section>
                 </article>
-            </main>
+            </main>-
             <footer>
                 <h4>Site produced by Alex Knight</h4>
                 <h4>Code Available on <a href="https://github.com/DemiKnight/ePortfolio">Github</a></h4>
