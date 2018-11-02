@@ -136,6 +136,15 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
  h1, h2, h3 {
     font-family: "Caviar Dreams Bold", sans-serif;
 }
+
+body{
+    margin: 0; /*Remove browser default*/
+    width: 100vw;
+
+    /*Make every child element be responsive, specifically not wrapping. */
+    display: flex;
+}
+
 /* Navigation */
 nav{
     /*Makes the navigation float to the left of the viewport and make it relative to */
@@ -332,32 +341,32 @@ nav ul li .nav-dropdown-item:hover::before{
     opacity: 1;
 }
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
-/*nav ul li a + ul{*/
-    /*display: none;*/
-    /*visibility: collapse;*/
-    /*opacity: 0;*/
+/*nav ul li a + ul{
+    display: none;
+    visibility: collapse;
+    opacity: 0;
 
-    /*-webkit-transition: opacity 0.2s ease-in-out;*/
-    /*-moz-transition: opacity 0.2s ease-in-out;*/
-    /*-ms-transition: opacity 0.2s ease-in-out;*/
-    /*-o-transition: opacity 0.2s ease-in-out;*/
-    /*transition: opacity 0.2s ease-in-out;*/
-/*}*/
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
 
-/*!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!*/
-/*nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{*/
-    /*display: inherit;*/
-    /*!*transition: display 0.2s ease-in-out;*!*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
-/*}*/
+!* When a mouse has click on the dropdown menu, or used tab to select the tag, items will be revealed. *!
+nav ul li a.nav-dropdown:active + ul, nav ul li a.nav-dropdown:focus + ul{
+    display: inherit;
+    !*transition: display 0.2s ease-in-out;*!
+    visibility: visible;
+    opacity: 1;
+}
 
-/*nav ul li > ul li:active, nav ul li > ul li:focus{*/
-    /*display: inherit;*/
-    /*!*transition: display 0.2s ease-in-out;*!*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
-/*}*/
+nav ul li > ul li:active, nav ul li > ul li:focus{
+    display: inherit;
+    !*transition: display 0.2s ease-in-out;*!
+visibility: visible;
+opacity: 1;
+}*/
 
 /* Main Content page.*/
 #mainPage{
@@ -378,10 +387,6 @@ nav ul li .nav-dropdown-item:hover::before{
     -moz-osx-font-smoothing: grayscale;
 }
 
-/*
-TODO Will add if the img tag is used.
-#mainPage section img{}*/
-
 #mainPage header{
     margin: 0; /*Remove browser default*/
     padding: 0.6rem;
@@ -392,6 +397,8 @@ TODO Will add if the img tag is used.
 }
 #mainPage a, #mainPage p, #mainPage span{
     font-family: "Caviar Dreams", sans-serif;
+    text-align: left;
+    font-size: 1.5rem;
 }
 #mainPage a:any-link{
     color: #21BEDA;
@@ -421,19 +428,25 @@ TODO Will add if the img tag is used.
         -2- CanIUse 'CSS Flexible Box Layout Module' [online] Accessed 26/10/2018 <https://caniuse.com/#feat=flexbox> ---
     */
 
+    /*### Flex Settings ### Child
+Using flex to force the element "grow" to the height of the page, taking up any available space
+*/
+    flex: 1 0 auto;
     /*##Flex container settings##*/
     display: flex; /*Enables this to be a flex container and apply flex-item displaying to each child element*/
     flex-direction: row; /* Makes the articles form row's*/
     flex-wrap: wrap; /*If the content can't fit on the page, it will fit underneath */
 
     /*##Flex items settings## child elements within the container*/
-    align-items: flex-start; /*Makes height adjust for the size of the content inside*/
+    align-items: center; /*Makes height adjust for the size of the content inside*/
+    justify-content: center;
 }
 #mainPage main article{
     margin: 5px;
     /*Stop the width of the each element from being outside of a certain range.*/
-    min-width: 15%;
-    max-width: 28%;
+    /*min-width: 15%;*/
+    width: 40%;
+    /*max-width: 28%;*/
 
     /*Added border to separate all content form the rest of the page, making it easy to see it is separate from the rest of the content on the page */
     border: #FFFFF8 solid 2px;
@@ -449,6 +462,12 @@ TODO Will add if the img tag is used.
 }
 #mainPage main article section{
     padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+#mainPage main article section img{
+    max-width:100%;
+    max-height:100%;
 }
 /*For each section, have a header giving a title and context to the specific */
 #mainPage main article h2{
@@ -457,9 +476,10 @@ TODO Will add if the img tag is used.
 }
 
 /*Table Styling */
-#mainPage main table{
+#mainPage main table, #mainPage main table a{
     width: 100%;
-    font-size: 1.25vw;
+    font-size: 1.5em;
+    font-family: "Caviar Dreams", sans-serif;
 }
 #mainPage main tr{
     /*outline-bottom: #ED553B;*/
@@ -483,22 +503,34 @@ TODO Will add if the img tag is used.
 #mainPage footer {
     background: #0F1E32;
     padding: 5px;
+    /*### Flex Settings ### Child
+When the Ul takes up the available space, this will stop it being pushed off the page.
+It will thus be placed at the bottom of the page.
+*/
+    flex-shrink: 0;
 }
 #mainPage footer h4{
     text-align: right;
     margin: 5px;
 }
-/*#mainPagePortrait{*/
-    /*width: 25vw;*/
-    /*height: 25vh;*/
-    /*background-size: contain;*/
-    /*background: url("../resources/images/me.JPG") no-repeat center;*/
-/*}*/
 
-body{
-    margin: 0; /*Remove browser default*/
-    width: 100vw;
-
-    /*Make every child element be responsive, specifically not wrapping. */
-    display: flex;
+@media screen and (max-width: 470px){
+    #mainPage{
+        background: darkgray;
+    }
+    #mainPage main{
+        padding: 0;
+    }
+    #mainPage main article{
+        /*flex*/
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #mainPage main table{
+        font-size: 1em;
+    }
+    #mainPage footer h4, #mainPage footer h4 > a{
+        font-size: 0.75rem;
+    }
 }
