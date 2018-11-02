@@ -392,10 +392,6 @@ opacity: 1;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/*
-TODO Will add if the img tag is used.
-#mainPage section img{}*/
-
 #mainPage header{
     margin: 0; /*Remove browser default*/
     padding: 0.6rem;
@@ -409,8 +405,10 @@ TODO Will add if the img tag is used.
     font-family: "Caviar Dreams Bold", sans-serif;
 }
 /*For all other text element, use the normal sans-serif font*/
-#mainPage a, #mainPage p, #mainPage span{
+#mainPage a, #mainPage p, #mainPage span, #mainPage ul{
     font-family: "Caviar Dreams", sans-serif;
+    text-align: left;
+    font-size: 1.5rem;
 }
 #mainPage a:any-link{
     color: #21BEDA;
@@ -488,9 +486,10 @@ Using flex to force the element "grow" to the height of the page, taking up any 
 }
 
 /*Table Styling */
-#mainPage main table{
+#mainPage main table, #mainPage main table a{
     width: 100%;
-    font-size: 1.25vw;
+    font-size: 1.5em;
+    font-family: "Caviar Dreams", sans-serif;
 }
 #mainPage main tr{
     /*outline-bottom: #ED553B;*/
@@ -524,16 +523,10 @@ It will thus be placed at the bottom of the page.
     text-align: right;
     margin: 5px;
 }
-/*#mainPagePortrait{*/
-    /*width: 25vw;*/
-    /*height: 25vh;*/
-    /*background-size: contain;*/
-    /*background: url("../resources/images/me.JPG") no-repeat center;*/
-/*}*/
 
 @media screen and (max-width: 470px){
     #mainPage{
-        background: darkgray    ;
+        background: darkgray;
     }
     #mainPage main{
         padding: 0;
@@ -543,5 +536,11 @@ It will thus be placed at the bottom of the page.
         width: 90%;
         margin-left: 0;
         margin-right: 0;
+    }
+    #mainPage main table{
+        font-size: 1em;
+    }
+    #mainPage footer h4, #mainPage footer h4 > a{
+        font-size: 0.75rem;
     }
 }
