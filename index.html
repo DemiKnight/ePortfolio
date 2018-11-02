@@ -3,7 +3,13 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!--
+            An idea outlined and demonstrated in [1], using the following meta tag will force* the browser to set the 'width'
+            to whatever 'device-width' is or the screen resolution. It will also set the zoom/'initial-scale; to 100%.
+
+            -1- CHRIS COYIER (17/3/2018), 'Responsive Meta Tag' [online] Accessed 31/10/2018 <https://css-tricks.com/snippets/html/responsive-meta-tag/> ---
+        -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/global.css">
         <title>ePortfolio - Alex Knight</title>
     </head>
@@ -12,9 +18,9 @@
         <nav> <!-- Navigation  -->
             <ul> <!-- Main Unordered List START-->
                 <li> <!-- Home Page -->
-                    <a href="index.html">
-                        <i class="material-icons nav-icon" aria-hidden="true">home</i>
-                        <span >Home</span>
+                    <a href="#" class="nav-active" >
+                        <i class="material-icons nav-icon">home</i>
+                        <span>Home</span>
                     </a>
                 </li>
 
@@ -30,17 +36,18 @@
                         <i class="material-icons nav-icon" aria-hidden="true">school</i>
                         <span>University</span>
                         <!--<i class="material-icons">keyboard_arrow_down</i>-->
+                       <!--
+                       TODO Add the following issue to stack overflow
+                       -->
                     </a>
                     <ul> <!-- Education Page Dropdown Start -->
                         <li class="nav-dropdown-item">
                             <a href="unit1-2.html">
-                                <!--<i class="material-icons">play_arrow</i>-->
                                 <span>Unit 1 & 2</span>
                             </a>
                         </li>
                         <li class="nav-dropdown-item">
                             <a href="unit3-4.html">
-                                <!--<i class="material-icons">play_arrow</i>-->
                                 <span>Unit 3 & 4</span>
                             </a>
                         </li>

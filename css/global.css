@@ -13,6 +13,20 @@ According to the article [2], flex uses "2 passes", to calculate the position, o
 -2- Paul Irish, Google,(2/07/2018) 'Flexbox layout isn't slow' [online] Accessed 26/10/2018 <https://developers.google.com/web/updates/2013/10/Flexbox-layout-isn-t-slow>---
 */
 
+/*
+Potential optimisation for IE 10 running on tablets. In IE 10, on Windows 8+, when a windows is snapped to the side
+IE ignores the "IE10 ignores the meta viewport tag for any viewport smaller than 400 pixels" [1] which would make any
+responsive meta tags useless and cause layout issues.
+
+todo check whether this does anything
+
+-1- Tim Kadlec (17/10/2012), 'IE10 Snap Mode and Responsive Design' [online] Accessed 31/10/18 <https://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/> ---
+ */
+@-ms-viewport{
+    /*noinspection CssInvalidPropertyValue*/
+    width: device-width;
+}
+
 /* ## Fonts ## */
 @font-face {
     font-family: 'Material Icons';
@@ -295,6 +309,12 @@ nav ul li a:hover{
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+.nav-active,nav ul li a:hover.nav-active{
+    /*color: #ED553B;*/
+    color: rgba(237,85,59,0.85);
+    user-select: none;
+    -webkit-user-select: none;
+}
 nav ul > li span{
 /*Make the text and icon sit next to each other*/
     display: inline-block;
@@ -304,15 +324,35 @@ nav ul > li span{
 nav ul li .material-icons{
     font-size: 36px; /*Icon size*/
 }
+/*nav ul li .nav-dropdown > .material-icons:last-child
+{
+    padding-top: 0;
+    padding-bottom: 4px;
 
+}
+nav ul li a.nav-dropdown:focus > .material-icons:last-child,
+nav ul li a.nav-dropdown:active> .material-icons:last-child,
+nav ul li a.nav-dropdown:hover > .material-icons:last-child,
+nav ul li a.nav-dropdown:focus-within > .material-icons:last-child{
+    padding-top: 4px;
+    padding-bottom: 0;
+}*/
 /*Dropdown menu, adds indentation to the dropdown menu*/
 nav ul li.nav-dropdown-item{
     display: inline-block; /*The text and icon will be on the same line*/
     /*Stop the text from deforming when the navigation bar is extending to the correct width*/
     white-space: nowrap;
-}
-nav:hover ul li.nav-dropdown-item{
     padding-left: 0;
+}
+nav ul li.nav-dropdown-item > a{
+    -webkit-transition: padding-left 0.2s ease-in-out;
+    -moz-transition: padding-left 0.2s ease-in-out;
+    -ms-transition: padding-left 0.2s ease-in-out;
+    -o-transition: padding-left 0.2s ease-in-out;
+    transition: padding-left 0.2s ease-in-out;
+}
+nav ul li.nav-dropdown-item:hover > a{
+    padding-left: 5px;
 }
 /*
 This code will add a arrow when the item is active/hovered over.
@@ -331,14 +371,22 @@ nav ul li.nav-dropdown-item::before{
 
     /*Used to control the fade of navigation arrow, from the invisible to visible state*/
     opacity: 0;
+
+
+    -webkit-transition: padding-left 0.2s ease-in-out;
+    -moz-transition: padding-left 0.2s ease-in-out;
+    -ms-transition: padding-left 0.2s ease-in-out;
+    -o-transition: padding-left 0.2s ease-in-out;
+    transition: padding-left 0.2s ease-in-out;
+}
+nav ul li .nav-dropdown-item:hover::before{
+    opacity: 1;
+    padding-left: 7px;
     -webkit-transition: opacity 0.3s ease-in-out;
     -moz-transition: opacity 0.3s ease-in-out;
     -ms-transition: opacity 0.3s ease-in-out;
     -o-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
-}
-nav ul li .nav-dropdown-item:hover::before{
-    opacity: 1;
 }
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
 /*nav ul li a + ul{
