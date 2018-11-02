@@ -299,6 +299,9 @@ nav ul{
     -webkit-padding-start: 2px;
     padding-left: 2px;
 }
+nav ul li a.nav-dropdown:hover{
+    color: #FFFFF8;
+}
 nav ul li a:hover{
     color: #ED553B;
     -webkit-transition: color 0.3s ease;
@@ -501,6 +504,7 @@ Using flex to force the element "grow" to the height of the page, taking up any 
     padding: 5px;
 }
 #mainPage footer h4{
+    font-family: "Caviar Dreams", sans-serif;
     text-align: right;
     margin: 5px;
 }
