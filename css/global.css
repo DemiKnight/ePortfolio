@@ -367,11 +367,7 @@ nav ul li.nav-dropdown-item::before{
 
     /*Used to control the fade of navigation arrow, from the invisible to visible state*/
     opacity: 0;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    -moz-transition: opacity 0.3s ease-in-out;
-    -ms-transition: opacity 0.3s ease-in-out;
-    -o-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out;
+
 
     -webkit-transition: padding-left 0.2s ease-in-out;
     -moz-transition: padding-left 0.2s ease-in-out;
@@ -382,6 +378,11 @@ nav ul li.nav-dropdown-item::before{
 nav ul li .nav-dropdown-item:hover::before{
     opacity: 1;
     padding-left: 7px;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 /*!* Hides the navigation dropdown items by default, until it is overwritten by a later rule. *!*/
 /*nav ul li a + ul{*/
