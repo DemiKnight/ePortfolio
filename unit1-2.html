@@ -76,7 +76,11 @@
                 <article>
                     <h2>Unit 1 - Web Design</h2>
                     <section>
-                        <img src="resources/images/web2.png" width="500" height="300"/>
+                        <picture>
+                            <!-- Picture for tablets and lower -->
+                            <source media="(min-width: 750px)" srcset="resources/images/min/web2.png">
+                            <img src="resources/images/web2.png" alt="Screenshot of CSS code"/>
+                        </picture>
                     </section>
                     <section>
                         <h3>Hall Of Fame</h3>
@@ -114,7 +118,10 @@
                 <article>
                     <h2>Unit 2 - Information Systems</h2>
                     <section>
-                        <img src="resources/images/is-trello.PNG" width="500" height="300"/>
+                        <picture>
+                            <source media="(min-width: 750px)" srcset="resources/images/min/is-trello.PNG" >
+                            <img src="resources/images/is-trello.PNG" alt="Screenshot of Trello planning tool"/>
+                        </picture>
                     </section>
                     <section>
                         <h3>Hall Of Fame</h3>
